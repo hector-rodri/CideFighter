@@ -37,20 +37,45 @@ public class Board1 extends JPanel {
                     case KeyEvent.VK_A -> ryu.setSpeed(-6);
                     case KeyEvent.VK_D -> ryu.setSpeed(6);
                     case KeyEvent.VK_W -> ryu.setMode(IPlayer1.WALK);
-                    case KeyEvent.VK_G -> ryu.setMode(IPlayer1.PUNCH);
-                    case KeyEvent.VK_H -> ryu.setMode(IPlayer1.KICK);
+                    case KeyEvent.VK_G -> {
+                        ryu.setMode(IPlayer1.PUNCH);
+                        if (isCollide(ryu.getX(), ryu.getY(), ken.getX(), ken.getY(), ryu.getW(), ken.getW())) {
+                            Ken.setKencounter(Ken.getKencounter() - 20);
+                        }
+                    }
+                    case KeyEvent.VK_H -> {
+                        ryu.setMode(IPlayer1.KICK);
+                        if (isCollide(ryu.getX(), ryu.getY(), ken.getX(), ken.getY(), ryu.getW(), ken.getW())) {
+                            Ken.setKencounter(Ken.getKencounter() - 30);
+                        }
+                    }
                     case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER);
                     
                     // Controles Ken (Jugador 2)
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-6);
                     case KeyEvent.VK_RIGHT -> ken.setSpeed(6);
                     case KeyEvent.VK_UP -> ken.setMode(IPlayer1.WALK);
-                    case KeyEvent.VK_NUMPAD1 -> ken.setMode(IPlayer1.PUNCH);
-                    case KeyEvent.VK_NUMPAD2 -> ken.setMode(IPlayer1.KICK);
+                    case KeyEvent.VK_NUMPAD1 -> {
+                        ken.setMode(IPlayer1.PUNCH);
+                        if (isCollide(ken.getX(), ken.getY(), ryu.getX(), ryu.getY(), ken.getW(), ryu.getW())) {
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 20);
+                        }
+                    }
+                    case KeyEvent.VK_NUMPAD2 -> {
+                        ken.setMode(IPlayer1.KICK);
+                        if (isCollide(ken.getX(), ken.getY(), ryu.getX(), ryu.getY(), ken.getW(), ryu.getW())) {
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 30);
+                        }
+                    }
                     case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER);
                 }
             }
         });
+    }
+
+    private boolean isCollide(int x1, int y1, int x2, int y2, int w1, int w2) {
+        int xDistance = Math.abs(x1 - x2);
+        return xDistance <= Math.max(w1, w2) - 10;
     }
 
     public Board1() {
@@ -84,5 +109,4 @@ public class Board1 extends JPanel {
         g.drawString("KEN", 380, 40);
     }
 }
-
 
