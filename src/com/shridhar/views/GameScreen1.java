@@ -95,7 +95,7 @@ public class GameScreen1 extends JFrame {
 		btnNewButton.setBackground(Color.BLUE);
 		btnNewButton.setForeground(Color.GREEN);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnNewButton.setBounds(83, 399, 181, 52);
+		btnNewButton.setBounds(80, 318, 181, 52);
 		contentPane.add(btnNewButton);
 		
 		JButton btnStartGame = new JButton("START GAME");
@@ -110,13 +110,6 @@ public class GameScreen1 extends JFrame {
 		btnStartGame.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnStartGame.setBounds(53, 237, 241, 59);
 		contentPane.add(btnStartGame);
-		
-		JButton btnChoosePlayer = new JButton("CHOOSE PLAYER");
-		btnChoosePlayer.setBackground(Color.BLUE);
-		btnChoosePlayer.setForeground(Color.GREEN);
-		btnChoosePlayer.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnChoosePlayer.setBounds(53, 318, 232, 59);
-		contentPane.add(btnChoosePlayer);
 		
 //		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBackground(Color.RED);
