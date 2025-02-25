@@ -10,18 +10,20 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board1 extends JPanel {
-    Camera1 camera1 = new Camera1();
-    Ryu ryu;
-    Ken ken;
-    Timer timer;
-    private boolean gameOver = false;
-    private String winner = "";
+    Camera1 camera1 = new Camera1(); // Objeto para manejar el fondo
+    Ryu ryu; // Instancia del personaje Ryu
+    Ken ken; // Instancia del personaje Ken
+    Timer timer; // Temporizador para actualizar el juego
+    private boolean gameOver = false; // Bandera para indicar si el juego ha terminado
+    private String winner = ""; // Almacena el ganador
 
+    // Método para iniciar el bucle del juego
     private void gameLoop() {
-        timer = new Timer(30, (e) -> repaint());
+        timer = new Timer(30, (e) -> repaint()); // Redibuja el juego cada 30 ms
         timer.start();
     }
 
+    // Método para asociar eventos de teclado a las acciones del juego
     private void bindEvents() {
         this.addKeyListener(new KeyAdapter() {
             @Override
@@ -34,7 +36,7 @@ public class Board1 extends JPanel {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (gameOver) return;
+                if (gameOver) return; // Si el juego terminó, ignorar eventos
 
                 switch (e.getKeyCode()) {
                     // Controles Ryu (Jugador 1)
@@ -73,16 +75,18 @@ public class Board1 extends JPanel {
                     }
                     case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER);
                 }
-                checkWinner();
+                checkWinner(); // Verificar si hay un ganador después de cada acción
             }
         });
     }
 
+    // Método para verificar colisiones entre los personajes
     private boolean isCollide(int x1, int y1, int x2, int y2, int w1, int w2) {
         int xDistance = Math.abs(x1 - x2);
         return xDistance <= Math.max(w1, w2) - 10;
     }
 
+    // Método para verificar si hay un ganador
     private void checkWinner() {
         if (Ryu.getRyucounter() <= 0) {
             gameOver = true;
@@ -114,6 +118,7 @@ public class Board1 extends JPanel {
         if (gameOver) drawGameOver(g);
     }
 
+    // Dibujar la interfaz del jugador (barras de vida, nombres, etc.)
     private void drawHUD(Graphics g) {
         g.setColor(Color.RED);
         g.fillRect(40, 40, Ryu.getRyucounter(), 40);
@@ -125,9 +130,17 @@ public class Board1 extends JPanel {
         g.drawString("KEN", 380, 40);
     }
 
+    // Dibujar pantalla de ganador con colores vistosos
     private void drawGameOver(Graphics g) {
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 50));
-        g.drawString(winner, 250, 300);
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, getWidth(), getHeight()); // Fondo oscuro para resaltar el mensaje
+        g.setColor(Color.CYAN);
+        g.setFont(new Font("Arial", Font.BOLD, 60));
+        g.drawString(winner, getWidth() / 2 - 150, getHeight() / 2);
     }
 }
+
+
+
+
+
