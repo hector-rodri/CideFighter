@@ -42,16 +42,16 @@ public class Board1 extends JPanel {
                     // Controles Ryu (Jugador 1)
                     case KeyEvent.VK_A -> ryu.setSpeed(-6);
                     case KeyEvent.VK_D -> ryu.setSpeed(6);
-                    case KeyEvent.VK_W -> ryu.setMode(IPlayer1.WALK);
+                    case KeyEvent.VK_W -> jump(ryu); // Ahora Ryu puede saltar correctamente
                     case KeyEvent.VK_G -> {
                         ryu.setMode(IPlayer1.PUNCH);
-                        if (isCollide(ryu.getX(), ryu.getY(), ken.getX(), ken.getY(), ryu.getW(), ken.getW())) {
+                        if (isCollide(ryu, ken)) {
                             Ken.setKencounter(Ken.getKencounter() - 20);
                         }
                     }
                     case KeyEvent.VK_H -> {
                         ryu.setMode(IPlayer1.KICK);
-                        if (isCollide(ryu.getX(), ryu.getY(), ken.getX(), ken.getY(), ryu.getW(), ken.getW())) {
+                        if (isCollide(ryu, ken)) {
                             Ken.setKencounter(Ken.getKencounter() - 30);
                         }
                     }
@@ -60,16 +60,16 @@ public class Board1 extends JPanel {
                     // Controles Ken (Jugador 2)
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-6);
                     case KeyEvent.VK_RIGHT -> ken.setSpeed(6);
-                    case KeyEvent.VK_UP -> ken.setMode(IPlayer1.WALK);
+                    case KeyEvent.VK_UP -> jump(ken); // Ahora Ken puede saltar correctamente
                     case KeyEvent.VK_NUMPAD1 -> {
                         ken.setMode(IPlayer1.PUNCH);
-                        if (isCollide(ken.getX(), ken.getY(), ryu.getX(), ryu.getY(), ken.getW(), ryu.getW())) {
+                        if (isCollide(ken, ryu)) {
                             Ryu.setRyucounter(Ryu.getRyucounter() - 20);
                         }
                     }
                     case KeyEvent.VK_NUMPAD2 -> {
                         ken.setMode(IPlayer1.KICK);
-                        if (isCollide(ken.getX(), ken.getY(), ryu.getX(), ryu.getY(), ken.getW(), ryu.getW())) {
+                        if (isCollide(ken, ryu)) {
                             Ryu.setRyucounter(Ryu.getRyucounter() - 30);
                         }
                     }
@@ -80,10 +80,28 @@ public class Board1 extends JPanel {
         });
     }
 
-    // Método para verificar colisiones entre los personajes
-    private boolean isCollide(int x1, int y1, int x2, int y2, int w1, int w2) {
-        int xDistance = Math.abs(x1 - x2);
-        return xDistance <= Math.max(w1, w2) - 10;
+    // Corrección: Método para manejar el salto correctamente
+    private void jump(Sprite1 player) {
+        new Thread(() -> {
+            int originalY = player.getY(); // Guardamos la posición inicial en Y
+            for (int i = 0; i < 10; i++) { // Subida del personaje
+                player.setY(player.getY() - 5);
+                repaint();
+                try { Thread.sleep(20); } catch (InterruptedException ignored) {}
+            }
+            for (int i = 0; i < 10; i++) { // Bajada del personaje
+                player.setY(player.getY() + 5);
+                repaint();
+                try { Thread.sleep(20); } catch (InterruptedException ignored) {}
+            }
+        }).start();
+    }
+
+    // Método mejorado para verificar colisiones, permitiendo ataques en el aire
+    private boolean isCollide(Sprite1 attacker, Sprite1 defender) {
+        int xDistance = Math.abs(attacker.getX() - defender.getX());
+        int yDistance = Math.abs(attacker.getY() - defender.getY());
+        return xDistance <= Math.max(attacker.getW(), defender.getW()) - 10 && yDistance <= Math.max(attacker.getH(), defender.getH()) - 10;
     }
 
     // Método para verificar si hay un ganador
@@ -118,7 +136,6 @@ public class Board1 extends JPanel {
         if (gameOver) drawGameOver(g);
     }
 
-    // Dibujar la interfaz del jugador (barras de vida, nombres, etc.)
     private void drawHUD(Graphics g) {
         g.setColor(Color.RED);
         g.fillRect(40, 40, Ryu.getRyucounter(), 40);
@@ -130,17 +147,12 @@ public class Board1 extends JPanel {
         g.drawString("KEN", 380, 40);
     }
 
-    // Dibujar pantalla de ganador con colores vistosos
     private void drawGameOver(Graphics g) {
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, getWidth(), getHeight()); // Fondo oscuro para resaltar el mensaje
+        g.fillRect(0, 0, getWidth(), getHeight());
         g.setColor(Color.CYAN);
         g.setFont(new Font("Arial", Font.BOLD, 60));
         g.drawString(winner, getWidth() / 2 - 150, getHeight() / 2);
     }
 }
-
-
-
-
 
