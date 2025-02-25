@@ -80,11 +80,10 @@ public class GameScreen1 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel Game = new JLabel("");
-		Game.setIcon(new ImageIcon("D:\\eclipse-workspace\\PersonalGame\\src\\com\\shridhar\\personalGame\\Intro.jpg"));
-		Game.setBounds(10, 0, 334, 232);
-		contentPane.add(Game);
-		
+		ImageIcon icono = new ImageIcon("C:\\Users\\Lenovo\\Desktop\\CideFighter\\src\\com\\shridhar\\personalGame\\cide.jpg"); // Ruta de la imagen
+        JLabel etiqueta = new JLabel(icono); 
+		etiqueta.setBounds(100, 20, 150, 150); 
+		contentPane.add(etiqueta);
 		
 		JButton btnNewButton = new JButton("HELP");
 		btnNewButton.addActionListener(new ActionListener() {
