@@ -14,6 +14,8 @@ public class Board1 extends JPanel {
     Ryu ryu;
     Ken ken;
     Timer timer;
+    private boolean gameOver = false;
+    private String winner = "";
 
     private void gameLoop() {
         timer = new Timer(30, (e) -> repaint());
@@ -32,6 +34,8 @@ public class Board1 extends JPanel {
 
             @Override
             public void keyPressed(KeyEvent e) {
+                if (gameOver) return;
+
                 switch (e.getKeyCode()) {
                     // Controles Ryu (Jugador 1)
                     case KeyEvent.VK_A -> ryu.setSpeed(-6);
@@ -69,6 +73,7 @@ public class Board1 extends JPanel {
                     }
                     case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER);
                 }
+                checkWinner();
             }
         });
     }
@@ -76,6 +81,16 @@ public class Board1 extends JPanel {
     private boolean isCollide(int x1, int y1, int x2, int y2, int w1, int w2) {
         int xDistance = Math.abs(x1 - x2);
         return xDistance <= Math.max(w1, w2) - 10;
+    }
+
+    private void checkWinner() {
+        if (Ryu.getRyucounter() <= 0) {
+            gameOver = true;
+            winner = "KEN WINS!";
+        } else if (Ken.getKencounter() <= 0) {
+            gameOver = true;
+            winner = "RYU WINS!";
+        }
     }
 
     public Board1() {
@@ -96,6 +111,7 @@ public class Board1 extends JPanel {
         ken.draw(g);
         ken.move();
         drawHUD(g);
+        if (gameOver) drawGameOver(g);
     }
 
     private void drawHUD(Graphics g) {
@@ -108,5 +124,10 @@ public class Board1 extends JPanel {
         g.drawString("RYU", 20, 40);
         g.drawString("KEN", 380, 40);
     }
-}
 
+    private void drawGameOver(Graphics g) {
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 50));
+        g.drawString(winner, 250, 300);
+    }
+}
