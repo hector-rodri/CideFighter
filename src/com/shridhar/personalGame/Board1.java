@@ -19,7 +19,7 @@ public class Board1 extends JPanel {
 
     // Método para iniciar el bucle del juego
     private void gameLoop() {
-        timer = new Timer(30, (e) -> repaint()); // Redibuja el juego cada 30 ms
+        timer = new Timer(90, (e) -> repaint()); // Redibuja el juego cada 30 ms
         timer.start();
     }
 
@@ -40,8 +40,8 @@ public class Board1 extends JPanel {
 
                 switch (e.getKeyCode()) {
                     // Controles Ryu (Jugador 1)
-                    case KeyEvent.VK_A -> ryu.setSpeed(-6);
-                    case KeyEvent.VK_D -> ryu.setSpeed(6);
+                    case KeyEvent.VK_A -> ryu.setSpeed(-10);
+                    case KeyEvent.VK_D -> ryu.setSpeed(20);
                     case KeyEvent.VK_W -> jump(ryu); // Ahora Ryu puede saltar correctamente
                     case KeyEvent.VK_G -> {
                         ryu.setMode(IPlayer1.PUNCH);
@@ -58,8 +58,8 @@ public class Board1 extends JPanel {
                     case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER);
                     
                     // Controles Ken (Jugador 2)
-                    case KeyEvent.VK_LEFT -> ken.setSpeed(-6);
-                    case KeyEvent.VK_RIGHT -> ken.setSpeed(6);
+                    case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
+                    case KeyEvent.VK_RIGHT -> ken.setSpeed(20);
                     case KeyEvent.VK_UP -> jump(ken); // Ahora Ken puede saltar correctamente
                     case KeyEvent.VK_NUMPAD1 -> {
                         ken.setMode(IPlayer1.PUNCH);
@@ -90,7 +90,7 @@ public class Board1 extends JPanel {
                 try { Thread.sleep(20); } catch (InterruptedException ignored) {}
             }
             for (int i = 0; i < 10; i++) { // Bajada del personaje
-                player.setY(player.getY() + 5);
+                player.setY(originalY);
                 repaint();
                 try { Thread.sleep(20); } catch (InterruptedException ignored) {}
             }
@@ -141,7 +141,7 @@ public class Board1 extends JPanel {
         g.fillRect(40, 40, Ryu.getRyucounter(), 40);
         g.setColor(Color.YELLOW);
         g.fillRect(400, 40, Ken.getKencounter(), 40);
-        g.setColor(Color.WHITE);
+        g.setColor(Color.black);
         g.setFont(new Font("Arial", Font.BOLD, 32));
         g.drawString("RYU", 20, 40);
         g.drawString("KEN", 380, 40);

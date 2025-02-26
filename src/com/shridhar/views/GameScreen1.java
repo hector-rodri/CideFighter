@@ -29,7 +29,7 @@ public class GameScreen1 extends JFrame {
 	int counter = 1;
 	
 	private void animation() {
-			timer = new Timer(50, (e)->{
+			timer = new Timer(10, (e)->{
 			progressBar.setValue(counter);
 			counter++;
 			if(counter>=100) {
