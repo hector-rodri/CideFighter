@@ -33,6 +33,7 @@ public class HelpScreen extends JFrame {
 
 	
 	public HelpScreen() {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 501, 447);
 		contentPane = new JPanel();
@@ -42,49 +43,51 @@ public class HelpScreen extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblInstructions = new JLabel("INSTRUCTIONS");
-		lblInstructions.setFont(new Font("Tahoma", Font.BOLD, 22));
-		lblInstructions.setBounds(157, 26, 189, 46);
+		lblInstructions.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblInstructions.setBounds(157, 26, 200, 46);
 		contentPane.add(lblInstructions);
 		
-		JLabel lblVkrightIncrease = new JLabel("VK_RIGHT :- Increase RYU speed");
+		JLabel jugador1 = new JLabel("RYU JUGADOR 1");
+		jugador1.setFont(new Font("Tahoma", Font.BOLD, 19));
+		jugador1.setBounds(24, 75, 304, 29);
+		contentPane.add(jugador1);
+
+		JLabel lblVkupIncrease = new JLabel("Tecla (W) :  Salto");
+		lblVkupIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkupIncrease.setBounds(24, 100, 304, 29);
+		contentPane.add(lblVkupIncrease);
+
+		JLabel lblVkrightIncrease = new JLabel("Tecla (A) :  Izquierda");
 		lblVkrightIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrightIncrease.setBounds(24, 100, 304, 29);
+		lblVkrightIncrease.setBounds(24, 135, 304, 29);
 		contentPane.add(lblVkrightIncrease);
 		
-		JLabel lblVkleftDecrease = new JLabel("VK_LEFT :- Decrease RYU speed");
-		lblVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkleftDecrease.setBounds(24, 135, 304, 29);
-		contentPane.add(lblVkleftDecrease);
-		
-		JLabel lblVkupIncrease = new JLabel("VK_UP :- Increase KEN speed");
-		lblVkupIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkupIncrease.setBounds(24, 170, 304, 29);
-		contentPane.add(lblVkupIncrease);
-		
-		JLabel lblVkdownDecrease = new JLabel("VK_DOWN :- Decrease KEN speed");
+		JLabel lblVkdownDecrease = new JLabel("Tecla (S) :  Agacharse");
 		lblVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkdownDecrease.setBounds(24, 205, 304, 29);
+		lblVkdownDecrease.setBounds(24, 170, 304, 29);
 		contentPane.add(lblVkdownDecrease);
-		
-		JLabel lblVkrRyu = new JLabel("VK_R :- RYU Punch");
-		lblVkrRyu.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrRyu.setBounds(24, 240, 304, 29);
-		contentPane.add(lblVkrRyu);
-		
-		JLabel lblVkkKen = new JLabel("VK_K :- KEN Punch");
-		lblVkkKen.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkkKen.setBounds(24, 275, 304, 29);
-		contentPane.add(lblVkkKen);
-		
-		JLabel lblVkfRyu = new JLabel("VK_F :- RYU Kick");
-		lblVkfRyu.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkfRyu.setBounds(24, 310, 304, 29);
-		contentPane.add(lblVkfRyu);
-		
-		JLabel lblVkpRyu = new JLabel("VK_P :- RYU Power");
-		lblVkpRyu.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkpRyu.setBounds(24, 345, 304, 29);
-		contentPane.add(lblVkpRyu);
+
+		JLabel lblVkleftDecrease = new JLabel("Tecla (D) :  Derecha");
+		lblVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkleftDecrease.setBounds(24, 205, 304, 29);
+		contentPane.add(lblVkleftDecrease);
+
+		JLabel lblVkrIncrease = new JLabel("Tecla (G) :  Golpe");
+		lblVkrIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkrIncrease.setBounds(24, 240, 304, 29);
+		contentPane.add(lblVkrIncrease);
+
+		JLabel lblVklDecrease = new JLabel("Tecla (H) :  Patada");
+		lblVklDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVklDecrease.setBounds(24, 275, 304, 29);
+		contentPane.add(lblVklDecrease);
+
+		JLabel ldlVklPoderespecial = new JLabel("Tecla (J) :  Poder Especial");
+		ldlVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));	
+		ldlVklPoderespecial.setBounds(24, 310, 304, 29);
+		contentPane.add(ldlVklPoderespecial);
+
+
 		
 		JButton btnExit = new JButton("EXIT");
 		btnExit.addActionListener(new ActionListener() {
