@@ -79,7 +79,11 @@ public class Board1 extends JPanel {
                     // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER);
                 }
                 checkWinner(); // Verificar si hay un ganador después de cada acción
+                
+
+
             }
+            
         });
     }
 
@@ -128,11 +132,14 @@ public class Board1 extends JPanel {
         if (Ryu.getRyucounter() <= 0) {
             gameOver = true;
             winner = "KEN WINS!";
+            
         } else if (Ken.getKencounter() <= 0) {
             gameOver = true;
             winner = "RYU WINS!";
         }
     }
+
+
 
     public Board1() {
         setSize(800, 600);
