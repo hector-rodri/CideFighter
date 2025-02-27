@@ -70,13 +70,13 @@ public class Board1 extends JPanel {
                             Ryu.setRyucounter(Ryu.getRyucounter() - 20);
                         }
                     }
-                    case KeyEvent.VK_NUMPAD2 -> {
-                        ken.setMode(IPlayer1.KICK);
-                        if (isCollide(ken, ryu)) {
-                            Ryu.setRyucounter(Ryu.getRyucounter() - 30);
-                        }
-                    }
-                    case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER);
+                    // case KeyEvent.VK_NUMPAD2 -> {
+                    //     ken.setMode(IPlayer1.KICK);
+                    //     if (isCollide(ken, ryu)) {
+                    //         Ryu.setRyucounter(Ryu.getRyucounter() - 30);
+                    //     }
+                    // }
+                    // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER);
                 }
                 checkWinner(); // Verificar si hay un ganador después de cada acción
             }
