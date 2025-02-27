@@ -19,7 +19,7 @@ public class Board1 extends JPanel {
 
     // Método para iniciar el bucle del juego
     private void gameLoop() {
-        timer = new Timer(90, (e) -> repaint()); // Redibuja el juego cada 30 ms
+        timer = new Timer(90, (e) -> repaint()); 
         timer.start();
     }
 
@@ -106,7 +106,7 @@ public class Board1 extends JPanel {
                 player.setY(player.getY() + 5);
                 repaint();
                 try {
-                    Thread.sleep(20);
+                    Thread.sleep(10);
                 } catch (InterruptedException ignored) {
                 }
             }
