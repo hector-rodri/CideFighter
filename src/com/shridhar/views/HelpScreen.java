@@ -37,56 +37,97 @@ public class HelpScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 501, 447);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.CYAN);
+		contentPane.setBackground(Color.lightGray);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblInstructions = new JLabel("INSTRUCTIONS");
+		lblInstructions.setForeground(Color.black);
 		lblInstructions.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblInstructions.setBounds(157, 26, 200, 46);
+		lblInstructions.setBounds(157, 20, 200, 46);
 		contentPane.add(lblInstructions);
 		
 		JLabel jugador1 = new JLabel("RYU JUGADOR 1");
 		jugador1.setFont(new Font("Tahoma", Font.BOLD, 19));
-		jugador1.setBounds(24, 75, 304, 29);
+		jugador1.setBounds(20, 75, 304, 29);
 		contentPane.add(jugador1);
 
 		JLabel lblVkupIncrease = new JLabel("Tecla (W) :  Salto");
 		lblVkupIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkupIncrease.setBounds(24, 100, 304, 29);
+		lblVkupIncrease.setBounds(20, 100, 304, 29);
 		contentPane.add(lblVkupIncrease);
 
 		JLabel lblVkrightIncrease = new JLabel("Tecla (A) :  Izquierda");
 		lblVkrightIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrightIncrease.setBounds(24, 135, 304, 29);
+		lblVkrightIncrease.setBounds(20, 135, 304, 29);
 		contentPane.add(lblVkrightIncrease);
 		
 		JLabel lblVkdownDecrease = new JLabel("Tecla (S) :  Agacharse");
 		lblVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkdownDecrease.setBounds(24, 170, 304, 29);
+		lblVkdownDecrease.setBounds(20, 170, 304, 29);
 		contentPane.add(lblVkdownDecrease);
 
 		JLabel lblVkleftDecrease = new JLabel("Tecla (D) :  Derecha");
 		lblVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkleftDecrease.setBounds(24, 205, 304, 29);
+		lblVkleftDecrease.setBounds(20, 205, 304, 29);
 		contentPane.add(lblVkleftDecrease);
 
 		JLabel lblVkrIncrease = new JLabel("Tecla (G) :  Golpe");
 		lblVkrIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrIncrease.setBounds(24, 240, 304, 29);
+		lblVkrIncrease.setBounds(20, 240, 304, 29);
 		contentPane.add(lblVkrIncrease);
 
 		JLabel lblVklDecrease = new JLabel("Tecla (H) :  Patada");
 		lblVklDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVklDecrease.setBounds(24, 275, 304, 29);
+		lblVklDecrease.setBounds(20, 275, 304, 29);
 		contentPane.add(lblVklDecrease);
 
-		JLabel ldlVklPoderespecial = new JLabel("Tecla (J) :  Poder Especial");
+		JLabel ldlVklPoderespecial = new JLabel("Tecla (J) :  Poder");
 		ldlVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));	
-		ldlVklPoderespecial.setBounds(24, 310, 304, 29);
+		ldlVklPoderespecial.setBounds(20, 310, 304, 29);
 		contentPane.add(ldlVklPoderespecial);
 
+
+		JLabel jugador2 = new JLabel("KEN JUGADOR 2");
+		jugador2.setFont(new Font("Tahoma", Font.BOLD, 19));
+		jugador2.setBounds(280, 75, 304, 29);
+		contentPane.add(jugador2);
+
+		JLabel lblVkupIncrease2 = new JLabel("Tecla (↑) :  Salto");
+		lblVkupIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkupIncrease2.setBounds(280, 100, 304, 29);
+		contentPane.add(lblVkupIncrease2);
+
+		JLabel lblVkrightIncrease2 = new JLabel("Tecla (←) :  Izquierda");
+		lblVkrightIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkrightIncrease2.setBounds(280, 135, 304, 29);
+		contentPane.add(lblVkrightIncrease2);
+
+		JLabel lblVkdownDecrease2 = new JLabel("Tecla (↓) :  Agacharse");
+		lblVkdownDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkdownDecrease2.setBounds(280, 170, 304, 29);
+		contentPane.add(lblVkdownDecrease2);
+
+		JLabel lblVkleftDecrease2 = new JLabel("Tecla (→) :  Derecha");
+		lblVkleftDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkleftDecrease2.setBounds(280, 205, 304, 29);
+		contentPane.add(lblVkleftDecrease2);
+
+		JLabel lblVkrIncrease2 = new JLabel("NumPad (1) :  Golpe");
+		lblVkrIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVkrIncrease2.setBounds(280, 240, 304, 29);
+		contentPane.add(lblVkrIncrease2);
+
+		JLabel lblVklDecrease2 = new JLabel("NumPad (2) :  Patada");
+		lblVklDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblVklDecrease2.setBounds(280, 275, 304, 29);
+		contentPane.add(lblVklDecrease2);
+
+		JLabel ldlVklPoderespecial2 = new JLabel("NumPad (3) :  Poder");
+		ldlVklPoderespecial2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		ldlVklPoderespecial2.setBounds(280, 310, 304, 29);
+		contentPane.add(ldlVklPoderespecial2);
 
 		
 		JButton btnExit = new JButton("EXIT");
