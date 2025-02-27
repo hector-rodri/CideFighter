@@ -34,7 +34,20 @@ public class Ken extends Sprite1 implements IPlayer1 {
 	}
 	
 	public void move() {
-		x+=speed;
+		int newX = getX() + speed; // Calcula la nueva posición en X
+		int screenWidth = 800;  // Ancho de la pantalla
+		int characterWidth = getW(); // Ancho del personaje
+	
+		// Limitar el movimiento dentro de la pantalla
+		if (newX < 0) {
+			newX = 0; // Evita que salga por la izquierda
+		} else if (newX + characterWidth > screenWidth) {
+			newX = screenWidth - characterWidth; // Evita que salga por la derecha
+		}
+	
+		setX(newX); // Aplicar nueva posición
+	
+		// Si agregas movimiento en Y, haz lo mismo con los límites verticales
 	}
 	
 	Ken(int x, int y){

@@ -36,13 +36,16 @@ public class Board1 extends JPanel {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (gameOver) return; // Si el juego terminó, ignorar eventos
+                if (gameOver)
+                    return; // Si el juego terminó, ignorar eventos
 
                 switch (e.getKeyCode()) {
                     // Controles Ryu (Jugador 1)
                     case KeyEvent.VK_A -> ryu.setSpeed(-10);
                     case KeyEvent.VK_D -> ryu.setSpeed(20);
-                    case KeyEvent.VK_W -> jump(ryu); // Ahora Ryu puede saltar correctamente
+                    case KeyEvent.VK_W -> {// Ahora Ryu puede saltar correctamente
+                        jump(ryu);
+                    }
                     case KeyEvent.VK_G -> {
                         ryu.setMode(IPlayer1.PUNCH);
                         if (isCollide(ryu, ken)) {
@@ -56,7 +59,7 @@ public class Board1 extends JPanel {
                         }
                     }
                     case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER);
-                    
+
                     // Controles Ken (Jugador 2)
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
                     case KeyEvent.VK_RIGHT -> ken.setSpeed(20);
@@ -80,28 +83,44 @@ public class Board1 extends JPanel {
         });
     }
 
-    // Corrección: Método para manejar el salto correctamente
+    private boolean salta = false;
+
     private void jump(Sprite1 player) {
+        if (salta)
+            return; 
+        salta = true; 
+
         new Thread(() -> {
-            int originalY = player.getY(); // Guardamos la posición inicial en Y
-            for (int i = 0; i < 10; i++) { // Subida del personaje
+            // Subida del personaje
+            for (int i = 0; i < 10; i++) {
                 player.setY(player.getY() - 5);
                 repaint();
-                try { Thread.sleep(20); } catch (InterruptedException ignored) {}
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException ignored) {
+                }
             }
-            for (int i = 0; i < 10; i++) { // Bajada del personaje
-                player.setY(originalY);
+
+            // Bajada del personaje
+            for (int i = 0; i < 10; i++) {
+                player.setY(player.getY() + 5);
                 repaint();
-                try { Thread.sleep(20); } catch (InterruptedException ignored) {}
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException ignored) {
+                }
             }
+
+            salta = false;
         }).start();
     }
-
+    
     // Método mejorado para verificar colisiones, permitiendo ataques en el aire
     private boolean isCollide(Sprite1 attacker, Sprite1 defender) {
         int xDistance = Math.abs(attacker.getX() - defender.getX());
         int yDistance = Math.abs(attacker.getY() - defender.getY());
-        return xDistance <= Math.max(attacker.getW(), defender.getW()) - 10 && yDistance <= Math.max(attacker.getH(), defender.getH()) - 10;
+        return xDistance <= Math.max(attacker.getW(), defender.getW()) - 10
+                && yDistance <= Math.max(attacker.getH(), defender.getH()) - 10;
     }
 
     // Método para verificar si hay un ganador
@@ -133,7 +152,8 @@ public class Board1 extends JPanel {
         ken.draw(g);
         ken.move();
         drawHUD(g);
-        if (gameOver) drawGameOver(g);
+        if (gameOver)
+            drawGameOver(g);
     }
 
     private void drawHUD(Graphics g) {
@@ -155,4 +175,3 @@ public class Board1 extends JPanel {
         g.drawString(winner, getWidth() / 2 - 150, getHeight() / 2);
     }
 }
-
