@@ -37,7 +37,7 @@ public class HelpScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 501, 447);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.lightGray);
+		contentPane.setBackground(new Color(44, 150, 57));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -136,8 +136,10 @@ public class HelpScreen extends JFrame {
 				exit();
 			}
 		});
-		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		btnExit.setBounds(201, 385, 89, 23);
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 28));
+		btnExit.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
+		btnExit.setForeground(new Color(44, 150, 57));//COLOR LETRA
+		btnExit.setBounds(177, 365, 150, 40);//UBICACIÓN DEL BOTÓN
 		contentPane.add(btnExit);
 		
 	}

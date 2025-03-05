@@ -110,7 +110,7 @@ public class GameScreen1 extends JFrame {
         btnCustomize.setBackground(new Color(190, 190, 190));//COLOR DE FONDO
         btnCustomize.setForeground(new Color(44, 150, 57));//COLOR LETRA
         btnCustomize.setFont(new Font("Tahoma", Font.BOLD, 28));
-        btnCustomize.setBounds(80, 318, 241, 50);//UBICACIÓN
+        btnCustomize.setBounds(53, 318, 241, 50);//UBICACIÓN
         contentPane.add(btnCustomize);
 
 		//BOTÓN HELP
@@ -123,7 +123,7 @@ public class GameScreen1 extends JFrame {
 		btnNewButton.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
 		btnNewButton.setForeground(new Color(44, 150, 57));//COLOR LETRA
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 28));
-		btnNewButton.setBounds(53, 390, 181, 52);//UBICACIÓN DEL BOTÓN
+		btnNewButton.setBounds(80, 390, 181, 52);//UBICACIÓN DEL BOTÓN
 		contentPane.add(btnNewButton);
 	}
 }
