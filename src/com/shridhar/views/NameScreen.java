@@ -21,7 +21,7 @@ public class NameScreen extends JFrame{
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        JLabel lblEnterName = new JLabel("Ingrese su nombre:");
+        JLabel lblEnterName = new JLabel("Introdueix el teu nom:");
         lblEnterName.setFont(new Font("Tahoma", Font.PLAIN, 18));
         lblEnterName.setBounds(20, 30, 200, 30);
         contentPane.add(lblEnterName);
@@ -41,7 +41,7 @@ public class NameScreen extends JFrame{
 
     private void savePlayerName() {
         String playerName = txtPlayerName.getText();
-        System.out.println("Nombre del jugador guardado: " + playerName);
+        System.out.println("Nom del jugador guardat: " + playerName);
         this.setVisible(false);
         this.dispose();
         GameScreen1 gameScreen = new GameScreen1();
