@@ -81,11 +81,12 @@ public class Ken extends Sprite1 implements IPlayer1 {
 				}).start();
 			}
 		}
-		
+
 	Ken(int x, int y){
 		loadImage();
 		loadWalk();
 		loadPunch();
+		
 		loadFall();
 		loadDefence();
 		mode = WALK;
@@ -95,20 +96,22 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		
 	}
 	
-	BufferedImage walkImages [] = new BufferedImage[5];
+	BufferedImage walkImages [] = new BufferedImage[6];
 	public void loadWalk() {
-		walkImages[0] = img.getSubimage(792, 2164, 28, 59);
-		walkImages[1]= img.getSubimage(736, 2163, 27, 60);
-		walkImages[2]= img.getSubimage(685, 2162, 27, 61);
-		walkImages[3]= img.getSubimage(632, 2163, 27, 60);
-		walkImages[4]= img.getSubimage(582, 2166, 23, 56);
+		walkImages[0] = img.getSubimage(6, 20, 56, 93);
+		walkImages[1]= img.getSubimage(70, 19, 54, 94);
+		walkImages[2]= img.getSubimage(135, 18, 59, 95);
+		walkImages[3]= img.getSubimage(199, 19, 68, 94);
+		walkImages[4]= img.getSubimage(275, 20, 70, 93);
+		walkImages[5]= img.getSubimage(353, 25, 63, 88);
 	}
 	
-	BufferedImage punchImages[] = new BufferedImage[3];
+	BufferedImage punchImages[] = new BufferedImage[4];
 	public void loadPunch() {
-		punchImages[0]= img.getSubimage(791, 2311, 28, 60);
-		punchImages[1]= img.getSubimage(733, 2311, 41, 60);
-		punchImages[2]= img.getSubimage(685, 2311, 29, 60);
+		punchImages[0]= img.getSubimage(697, 19, 77, 94);
+		punchImages[1]= img.getSubimage(582, 18, 107, 95);
+		punchImages[2]= img.getSubimage(497, 19, 77, 94);
+		punchImages[3]= img.getSubimage(423, 19, 66, 94);
 		
 	}
 	
@@ -125,7 +128,11 @@ public class Ken extends Sprite1 implements IPlayer1 {
 //		fallImages[5]= img.getSubimage(791, 2865, 26, 48);
 //		fallImages[6]= img.getSubimage(206, 2332, 55, 29);
 //		fallImages[7]= img.getSubimage(59, 2301, 25, 69);
-		
+	}
+
+	BufferedImage jumpImages[] = new BufferedImage[5];
+	public void loadJump(){
+
 	}
 	
 	BufferedImage defenceImages[] = new BufferedImage[3];
