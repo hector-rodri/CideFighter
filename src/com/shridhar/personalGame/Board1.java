@@ -5,6 +5,9 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -16,6 +19,9 @@ public class Board1 extends JPanel {
     Timer timer; // Temporizador para actualizar el juego
     private boolean gameOver = false; // Bandera para indicar si el juego ha terminado
     private String winner = ""; // Almacena el ganador
+    private JButton replayButton; // Botón para volver a jugar
+
+    
 
     // Método para iniciar el bucle del juego
     private void gameLoop() {
@@ -141,6 +147,7 @@ public class Board1 extends JPanel {
         setFocusable(true);
         bindEvents();
         gameLoop();
+        initReplayButton(); // Inicializar el botón de volver a jugar
     }
 
     @Override
@@ -152,9 +159,39 @@ public class Board1 extends JPanel {
         ken.draw(g);
         ken.move();
         drawHUD(g);
-        if (gameOver)
+        if (gameOver) {
             drawGameOver(g);
+            replayButton.setVisible(true); // Mostrar el botón cuando el juego ha terminado
+        }
     }
+    private void initReplayButton() {
+        replayButton = new JButton("Volver a Jugar");
+        replayButton.setBounds(300, 300, 200, 60);
+        replayButton.setFont(new Font("Arial", Font.BOLD, 20));
+        replayButton.setVisible(false);
+        replayButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                resetGame();
+            }
+        });
+        this.setLayout(null);
+        this.add(replayButton);
+    }
+
+    private void resetGame() {
+        gameOver = false;
+        winner = "";
+        Ryu.setRyucounter(300); // Restablecer la vida de Ryu
+        Ken.setKencounter(300); // Restablecer la vida de Ken
+        ryu.setX(100); // Restablecer la posición de Ryu
+        ryu.setY(400);
+        ken.setX(600); // Restablecer la posición de Ken
+        ken.setY(400);
+        replayButton.setVisible(false);
+        repaint();
+    }
+    
 
     private void drawHUD(Graphics g) {
         g.setColor(Color.RED);
@@ -166,6 +203,7 @@ public class Board1 extends JPanel {
         g.drawString("RYU", 20, 40);
         g.drawString("KEN", 380, 40);
     }
+    
 
     private void drawGameOver(Graphics g) {
         g.setColor(Color.BLACK);
