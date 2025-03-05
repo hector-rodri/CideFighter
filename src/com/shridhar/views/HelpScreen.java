@@ -99,27 +99,27 @@ public class HelpScreen extends JFrame {
 		lblVkupIncrease2.setBounds(280, 100, 304, 29);
 		contentPane.add(lblVkupIncrease2);
 
-		JLabel lblVkrightIncrease2 = new JLabel("Tecla (←) :  Izquierda");
+		JLabel lblVkrightIncrease2 = new JLabel("Tecla (←) :  Esquerra");
 		lblVkrightIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkrightIncrease2.setBounds(280, 135, 304, 29);
 		contentPane.add(lblVkrightIncrease2);
 
-		JLabel lblVkdownDecrease2 = new JLabel("Tecla (↓) :  Agacharse");
+		JLabel lblVkdownDecrease2 = new JLabel("Tecla (↓) :  Acotar-se");
 		lblVkdownDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkdownDecrease2.setBounds(280, 170, 304, 29);
 		contentPane.add(lblVkdownDecrease2);
 
-		JLabel lblVkleftDecrease2 = new JLabel("Tecla (→) :  Derecha");
+		JLabel lblVkleftDecrease2 = new JLabel("Tecla (→) :  Dreta");
 		lblVkleftDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkleftDecrease2.setBounds(280, 205, 304, 29);
 		contentPane.add(lblVkleftDecrease2);
 
-		JLabel lblVkrIncrease2 = new JLabel("NumPad (1) :  Golpe");
+		JLabel lblVkrIncrease2 = new JLabel("NumPad (1) :  Cop");
 		lblVkrIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkrIncrease2.setBounds(280, 240, 304, 29);
 		contentPane.add(lblVkrIncrease2);
 
-		JLabel lblVklDecrease2 = new JLabel("NumPad (2) :  Patada");
+		JLabel lblVklDecrease2 = new JLabel("NumPad (2) :  Potada");
 		lblVklDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVklDecrease2.setBounds(280, 275, 304, 29);
 		contentPane.add(lblVklDecrease2);
@@ -130,7 +130,7 @@ public class HelpScreen extends JFrame {
 		contentPane.add(ldlVklPoderespecial2);
 
 		
-		JButton btnExit = new JButton("EXIT");
+		JButton btnExit = new JButton("SORTIR");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				exit();
