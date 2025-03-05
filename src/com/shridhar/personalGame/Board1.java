@@ -42,9 +42,9 @@ public class Board1 extends JPanel {
                 switch (e.getKeyCode()) {
                     // Controles Ryu (Jugador 1)
                     case KeyEvent.VK_A -> ryu.setSpeed(-10);
-                    case KeyEvent.VK_D -> ryu.setSpeed(20);
-                    case KeyEvent.VK_W -> {// Ahora Ryu puede saltar correctamente
-                        jump(ryu);
+                    case KeyEvent.VK_D -> ryu.setSpeed(10);
+                    case KeyEvent.VK_W -> {
+                        ryu.jump(); // Ahora Ryu puede saltar correctamente
                     }
                     case KeyEvent.VK_G -> {
                         ryu.setMode(IPlayer1.PUNCH);
@@ -62,8 +62,8 @@ public class Board1 extends JPanel {
 
                     // Controles Ken (Jugador 2)
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
-                    case KeyEvent.VK_RIGHT -> ken.setSpeed(20);
-                    case KeyEvent.VK_UP -> jump(ken); // Ahora Ken puede saltar correctamente
+                    case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
+                    case KeyEvent.VK_UP -> ken.jump(); // Ahora Ken puede saltar correctamente
                     case KeyEvent.VK_NUMPAD1 -> {
                         ken.setMode(IPlayer1.PUNCH);
                         if (isCollide(ken, ryu)) {
@@ -81,38 +81,6 @@ public class Board1 extends JPanel {
                 checkWinner(); // Verificar si hay un ganador después de cada acción
             }
         });
-    }
-
-    private boolean salta = false;
-
-    private void jump(Sprite1 player) {
-        if (salta)
-            return; 
-        salta = true; 
-
-        new Thread(() -> {
-            // Subida del personaje
-            for (int i = 0; i < 10; i++) {
-                player.setY(player.getY() - 5);
-                repaint();
-                try {
-                    Thread.sleep(20);
-                } catch (InterruptedException ignored) {
-                }
-            }
-
-            // Bajada del personaje
-            for (int i = 0; i < 10; i++) {
-                player.setY(player.getY() + 5);
-                repaint();
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException ignored) {
-                }
-            }
-
-            salta = false;
-        }).start();
     }
     
     // Método mejorado para verificar colisiones, permitiendo ataques en el aire
