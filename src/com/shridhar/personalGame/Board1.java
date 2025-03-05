@@ -165,7 +165,7 @@ public class Board1 extends JPanel {
         }
     }
     private void initReplayButton() {
-        replayButton = new JButton("Volver a Jugar");
+        replayButton = new JButton("Tornar a Jugar");
         replayButton.setBounds(300, 300, 200, 60);
         replayButton.setFont(new Font("Arial", Font.BOLD, 20));
         replayButton.setVisible(false);
