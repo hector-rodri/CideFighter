@@ -50,6 +50,38 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		// Si agregas movimiento en Y, haz lo mismo con los límites verticales
 	}
 	
+	public void jump(){ // Método para hacer saltar al personaje
+		if (y == FLOOR-h) {
+			mode = JUMP;// Iniciar el salto
+				new Thread(() -> {
+					int jumpHeight = 125; // Altura del salto
+					int jumpSpeed = 5; // Velocidad del salto
+
+					// Subir
+					for (int i = 0; i < jumpHeight; i += jumpSpeed) {
+						y -= jumpSpeed;
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+
+					// Bajar
+					for (int i = 0; i < jumpHeight; i += jumpSpeed) {
+						y += jumpSpeed;
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					// Volver al modo caminar
+					mode = WALK;
+				}).start();
+			}
+		}
+		
 	Ken(int x, int y){
 		loadImage();
 		loadWalk();
