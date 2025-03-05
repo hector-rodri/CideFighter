@@ -133,10 +133,10 @@ public class Board1 extends JPanel {
     private void checkWinner() {
         if (Ryu.getRyucounter() <= 0) {
             gameOver = true;
-            winner = "KEN WINS!";
+            winner = "KEN GUANYA!";
         } else if (Ken.getKencounter() <= 0) {
             gameOver = true;
-            winner = "RYU WINS!";
+            winner = "RYU GUANYA!";
         }
     }
 
