@@ -50,11 +50,44 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	
 		// Si agregas movimiento en Y, haz lo mismo con los límites verticales
 	}
+
+	public void jump(){ // Método para hacer saltar al personaje
+		if (y == FLOOR-h) {
+			mode = JUMP;// Iniciar el salto
+				new Thread(() -> {
+					int jumpHeight = 125; // Altura del salto
+					int jumpSpeed = 5; // Velocidad del salto
+
+					// Subir
+					for (int i = 0; i < jumpHeight; i += jumpSpeed) {
+						y -= jumpSpeed;
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+
+					// Bajar
+					for (int i = 0; i < jumpHeight; i += jumpSpeed) {
+						y += jumpSpeed;
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					// Volver al modo caminar
+					mode = WALK;
+				}).start();
+			}
+		}
 	
 	Ryu(int x, int y){
 		loadImage();
 		loadWalk();
 		loadPunch();
+		loadJump();
 		loadFall();
 		loadKick();
 		loadPower();
@@ -91,7 +124,15 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		fallImages[5]= img.getSubimage(539, 1849, 74, 27);
 		fallImages[6]= img.getSubimage(539, 1849, 74, 27);
 		fallImages[7]= img.getSubimage(539, 1849, 74, 27);
-		
+	}
+
+	BufferedImage jumpImages[] = new BufferedImage[5];
+	public void loadJump() {
+		jumpImages[0]= img.getSubimage(618, 1051, 30, 73);
+		jumpImages[1]= img.getSubimage(682, 1034, 33, 90);
+		jumpImages[2]= img.getSubimage(744, 1046, 29, 81);
+		jumpImages[3]= img.getSubimage(796, 1057, 31, 67);
+		jumpImages[4]= img.getSubimage(618, 1051, 30, 73);	
 	}
 	
 	BufferedImage kickImages[] = new BufferedImage[5];
@@ -152,6 +193,17 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		mydelay1++;
 	}
 	
+	private int jumpIndex = 0;
+	private void drawJump(Graphics g) {
+		g.drawImage(jumpImages[jumpIndex], x, y, w, h, null);
+		jumpIndex++;
+		if(jumpIndex>4) {
+			jumpIndex = 0;
+			mode = WALK;
+		}
+	}
+
+
 	private int kickIndex = 0;
 	private void drawKick(Graphics g) {
 		g.drawImage(kickImages[kickIndex], x, y, w, h, null);
@@ -174,26 +226,27 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	
 	@Override
 	public void draw(Graphics g) {
-		if(mode==WALK) {
-			drawWalk(g);
-		}
-		else 
-			if(mode==PUNCH) {
+		switch (getMode()) { //Switch case para cambiar el sprite de Ryu segun su modo
+			case (WALK):
+				drawWalk(g);
+				break;
+			case (PUNCH):
 				drawPunch(g);
-			}
-			else 
-				if(mode==FALL) {
-					drawFall(g);
-				}
-				else 
-					if(mode==KICK) {
-						drawKick(g);
-					}
-					else 
-						if(mode==POWER) {
-							drawPower(g);
-						}
-	}
+				break;
+			case (FALL):
+				drawFall(g);
+				break;
+			case (KICK):
+				drawKick(g);
+				break;
+			case (POWER):
+				drawPower(g);
+				break;
+			case (JUMP):
+				drawJump(g);
+				break;
+		}
+}
 	
 	int barwidth = 300;
 	public int drawProgress(Graphics g) {

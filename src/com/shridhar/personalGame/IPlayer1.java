@@ -7,5 +7,6 @@ public interface IPlayer1 {
 	int KICK = 4;
 	int DEFENCE = 5;
 	int POWER = 6;
+	int JUMP = 7;
 
 }

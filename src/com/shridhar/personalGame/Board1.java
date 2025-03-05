@@ -37,9 +37,12 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
 
                 switch (e.getKeyCode()) { // Verifica qué tecla se presionó
                     // Controles Ryu (Jugador 1)
-                    case KeyEvent.VK_A -> ryu.setSpeed(-10); // Mueve a Ryu a la izquierda
-                    case KeyEvent.VK_D -> ryu.setSpeed(20); // Mueve a Ryu a la derecha
-                    case KeyEvent.VK_W -> jump(ryu); // Hace que Ryu salte
+
+                    case KeyEvent.VK_A -> ryu.setSpeed(-10);
+                    case KeyEvent.VK_D -> ryu.setSpeed(10);
+                    case KeyEvent.VK_W -> {
+                        ryu.jump(); // Ahora Ryu puede saltar correctamente
+                    }
                     case KeyEvent.VK_G -> {
                         ryu.setMode(IPlayer1.PUNCH); // Ryu lanza un puñetazo
                         if (isCollide(ryu, ken)) {
@@ -55,9 +58,10 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                     case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER); // Ryu usa un ataque especial
 
                     // Controles Ken (Jugador 2)
-                    case KeyEvent.VK_LEFT -> ken.setSpeed(-10); // Mueve a Ken a la izquierda
-                    case KeyEvent.VK_RIGHT -> ken.setSpeed(20); // Mueve a Ken a la derecha
-                    case KeyEvent.VK_UP -> jump(ken); // Hace que Ken salte
+                    
+                    case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
+                    case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
+                    case KeyEvent.VK_UP -> ken.jump(); // Ahora Ken puede saltar correctamente
                     case KeyEvent.VK_NUMPAD1 -> {
                         ken.setMode(IPlayer1.PUNCH); // Ken lanza un puñetazo
                         if (isCollide(ken, ryu)) {
@@ -77,38 +81,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         });
     }
 
-    private boolean salta = false; // Bandera para indicar si un personaje está saltando
-
-    private void jump(Sprite1 player) {
-        if (salta)
-            return; // Si ya está saltando, no hacer nada
-        salta = true; // Indicar que el personaje está saltando
-
-        new Thread(() -> { // Crea un nuevo hilo para manejar el salto
-            // Subida del personaje
-            for (int i = 0; i < 10; i++) {
-                player.setY(player.getY() - 5); // Mueve al personaje hacia arriba
-                repaint(); // Redibuja el componente
-                try {
-                    Thread.sleep(20); // Pausa para crear el efecto de salto
-                } catch (InterruptedException ignored) {
-                }
-            }
-
-            // Bajada del personaje
-            for (int i = 0; i < 10; i++) {
-                player.setY(player.getY() + 5); // Mueve al personaje hacia abajo
-                repaint(); // Redibuja el componente
-                try {
-                    Thread.sleep(10); // Pausa para crear el efecto de caída
-                } catch (InterruptedException ignored) {
-                }
-            }
-
-            salta = false; // Indicar que el personaje ha terminado de saltar
-        }).start(); // Inicia el hilo para manejar el salto
-    }
-
+    
     // Método mejorado para verificar colisiones, permitiendo ataques en el aire
     private boolean isCollide(Sprite1 attacker, Sprite1 defender) {
         int xDistance = Math.abs(attacker.getX() - defender.getX()); // Calcula la distancia en el eje X
