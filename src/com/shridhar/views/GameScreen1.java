@@ -92,7 +92,7 @@ public class GameScreen1 extends JFrame {
 		contentPane.add(progressBar);
 		
 		//BOTÓN START
-		JButton btnStartGame = new JButton("START GAME");
+		JButton btnStartGame = new JButton("JUGAR");
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				animation();
@@ -114,7 +114,7 @@ public class GameScreen1 extends JFrame {
         contentPane.add(btnCustomize);
 
 		//BOTÓN HELP
-		JButton btnNewButton = new JButton("HELP");
+		JButton btnNewButton = new JButton("AJUDA");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				help();
