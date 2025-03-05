@@ -1,21 +1,11 @@
 package com.shridhar.views;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import com.shridhar.personalGame.GameFrame1;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JProgressBar;
-import javax.swing.JWindow;
-import javax.swing.Timer;
+import java.awt.event.*;
+
 
 public class GameScreen1 extends JFrame {
 
@@ -71,6 +61,7 @@ public class GameScreen1 extends JFrame {
 
 	JProgressBar progressBar = new JProgressBar();
 	public GameScreen1() {//PANTALLA INICIAL
+		setTitle("CIDE FIGHTER");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 500);
 		contentPane = new JPanel();
@@ -89,13 +80,16 @@ public class GameScreen1 extends JFrame {
 		progressBar.setBackground(new Color(190, 190, 190));//COLOR DE FONDO
 		progressBar.setStringPainted(true);
 		progressBar.setBounds(35, 195, 278, 28);//UBICACIÓN
+		progressBar.setVisible(false);
 		contentPane.add(progressBar);
+		
 		
 		//BOTÓN START
 		JButton btnStartGame = new JButton("JUGAR");
 		btnStartGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				animation();
+				progressBar.setVisible(true);
 			}
 		});
 		btnStartGame.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
