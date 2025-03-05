@@ -140,16 +140,5 @@ public class HelpScreen extends JFrame {
 		btnExit.setBounds(201, 385, 89, 23);
 		contentPane.add(btnExit);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
