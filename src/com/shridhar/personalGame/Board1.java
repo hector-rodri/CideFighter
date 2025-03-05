@@ -3,8 +3,6 @@ package com.shridhar.personalGame; // Define el paquete al que pertenece esta cl
 import java.awt.*; 
 import java.awt.event.*; 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Board1 extends JPanel { // Define la clase Board1 que extiende JPanel
     Camera1 camera1 = new Camera1(); // Objeto para manejar el fondo
@@ -123,10 +121,11 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void checkWinner() {
         if (Ryu.getRyucounter() <= 0) { // Verifica si la vida de Ryu es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = "KEN GUANYA!"; // Establece a Ken como ganador
+            winner = "KEN GUANYA!!"; // Establece a Ken como ganador
+            
         } else if (Ken.getKencounter() <= 0) { // Verifica si la vida de Ken es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = "RYU GUANYA!"; // Establece a Ryu como ganador
+            winner = "RYU GUANYA!!"; // Establece a Ryu como ganador
         }
     }
 
@@ -158,7 +157,9 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void initReplayButton() {
         replayButton = new JButton("Tornar a Jugar"); // Crea el botón de volver a jugar
         replayButton.setBounds(300, 300, 200, 60); // Establece la posición y tamaño del botón
-        replayButton.setFont(new Font("Arial", Font.BOLD, 20)); // Establece la fuente del botón
+		replayButton.setForeground(new Color(255, 255, 255));//COLOR LETRA
+        replayButton.setBackground(new Color(252, 28, 3));//COLOR FONDO
+        replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
         replayButton.setVisible(false); // Inicialmente, el botón no es visible
         replayButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
             @Override
@@ -195,10 +196,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     }
 
     private void drawGameOver(Graphics g) {
-        g.setColor(Color.BLACK); // Establece el color negro
-        g.fillRect(0, 0, getWidth(), getHeight()); // Dibuja un rectángulo negro que cubre toda la pantalla
-        g.setColor(Color.CYAN); // Establece el color cian
-        g.setFont(new Font("Arial", Font.BOLD, 60)); // Establece la fuente
-        g.drawString(winner, getWidth() / 2 - 150, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
+        g.setColor(Color.black); // Establece el color negrito
+        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 60)); // Establece la fuente
+        g.drawString(winner, getWidth() / 2 - 180, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
     }
 }
