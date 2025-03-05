@@ -42,7 +42,7 @@ public class HelpScreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblInstructions = new JLabel("INSTRUCTIONS");
+		JLabel lblInstructions = new JLabel("INSTRUCCIONS");
 		lblInstructions.setForeground(Color.black);
 		lblInstructions.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblInstructions.setBounds(157, 20, 200, 46);
@@ -53,32 +53,32 @@ public class HelpScreen extends JFrame {
 		jugador1.setBounds(20, 75, 304, 29);
 		contentPane.add(jugador1);
 
-		JLabel lblVkupIncrease = new JLabel("Tecla (W) :  Salto");
+		JLabel lblVkupIncrease = new JLabel("Tecla (W) :  Salt");
 		lblVkupIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkupIncrease.setBounds(20, 100, 304, 29);
 		contentPane.add(lblVkupIncrease);
 
-		JLabel lblVkrightIncrease = new JLabel("Tecla (A) :  Izquierda");
+		JLabel lblVkrightIncrease = new JLabel("Tecla (A) :  Esquerra");
 		lblVkrightIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkrightIncrease.setBounds(20, 135, 304, 29);
 		contentPane.add(lblVkrightIncrease);
 		
-		JLabel lblVkdownDecrease = new JLabel("Tecla (S) :  Agacharse");
+		JLabel lblVkdownDecrease = new JLabel("Tecla (S) :  Acotar-se");
 		lblVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkdownDecrease.setBounds(20, 170, 304, 29);
 		contentPane.add(lblVkdownDecrease);
 
-		JLabel lblVkleftDecrease = new JLabel("Tecla (D) :  Derecha");
+		JLabel lblVkleftDecrease = new JLabel("Tecla (D) :  Dreta");
 		lblVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkleftDecrease.setBounds(20, 205, 304, 29);
 		contentPane.add(lblVkleftDecrease);
 
-		JLabel lblVkrIncrease = new JLabel("Tecla (G) :  Golpe");
+		JLabel lblVkrIncrease = new JLabel("Tecla (G) :  Cop");
 		lblVkrIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkrIncrease.setBounds(20, 240, 304, 29);
 		contentPane.add(lblVkrIncrease);
 
-		JLabel lblVklDecrease = new JLabel("Tecla (H) :  Patada");
+		JLabel lblVklDecrease = new JLabel("Tecla (H) :  Potada");
 		lblVklDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVklDecrease.setBounds(20, 275, 304, 29);
 		contentPane.add(lblVklDecrease);
@@ -94,7 +94,7 @@ public class HelpScreen extends JFrame {
 		jugador2.setBounds(280, 75, 304, 29);
 		contentPane.add(jugador2);
 
-		JLabel lblVkupIncrease2 = new JLabel("Tecla (↑) :  Salto");
+		JLabel lblVkupIncrease2 = new JLabel("Tecla (↑) :  Salt");
 		lblVkupIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkupIncrease2.setBounds(280, 100, 304, 29);
 		contentPane.add(lblVkupIncrease2);
