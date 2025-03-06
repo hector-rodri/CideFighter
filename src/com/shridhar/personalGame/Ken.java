@@ -87,6 +87,7 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		loadWalk();
 		loadPunch();
 		loadJump();
+		loadKick();
 		loadFall();
 		loadDefence();
 		mode = WALK;
@@ -137,6 +138,17 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		defenceImages[1]= img.getSubimage(104, 2152, 26, 69);
 		
 	}
+
+	BufferedImage kickImages[] = new BufferedImage[7];
+	public void loadKick(){
+		kickImages[0]= img.getSubimage(6, 264, 66, 94);
+		kickImages[1]= img.getSubimage(80, 257, 83, 101);
+		kickImages[2]= img.getSubimage(410, 257, 83, 99);
+		kickImages[3]= img.getSubimage(343, 265, 59, 91);
+		kickImages[4]= img.getSubimage(243, 270, 101, 86);
+		kickImages[5]= img.getSubimage(171, 269, 55, 88);
+		kickImages[6]= img.getSubimage(80, 257, 83, 101);
+	}
 	
 	
 	
@@ -167,6 +179,16 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		walkIndex++;
 		if(walkIndex==walkImages.length) {
 			walkIndex = 0;
+		}
+	}
+
+	private int kickIndex = 0;
+	private void drawKick(Graphics g){
+		g.drawImage(kickImages[kickIndex], x, y, w, h, null);
+		kickIndex++;
+		if(kickIndex==kickImages.length) {
+			kickIndex = 0;
+			mode = WALK;
 		}
 	}
 	
@@ -211,6 +233,9 @@ public class Ken extends Sprite1 implements IPlayer1 {
 			break;
 		case FALL:
 			drawFall(g);
+			break;
+		case KICK:
+			drawKick(g);
 			break;
 		case DEFENCE:
 			drawDefence(g);
