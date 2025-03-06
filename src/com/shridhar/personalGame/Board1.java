@@ -102,11 +102,11 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void checkWinner() {
         if (Ryu.getRyucounter() <= 0) { // Verifica si la vida de Ryu es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = "KEN GUANYA!!"; // Establece a Ken como ganador
+            winner = player2Name+" GUANYA!!"; // Establece a Ken como ganador
             
         } else if (Ken.getKencounter() <= 0) { // Verifica si la vida de Ken es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = "RYU GUANYA!!"; // Establece a Ryu como ganador
+            winner = player1Name+" GUANYA!!"; // Establece a Ryu como ganador
         }
     }
 

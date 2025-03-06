@@ -3,8 +3,7 @@ package com.shridhar.views;//Paquete donde se encuentra la clase
 import javax.swing.*;//Imports necesarios para la interfaz gráfica y el diseño
 import com.shridhar.personalGame.Board1; 
 import java.awt.*; 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
     public JTextField nombreJugador1;//Campos de texto donde los jugadores escribirán sus nombres
@@ -76,7 +75,7 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
         botonSalir.addActionListener(new ActionListener() {//Cuando se hace clic en el botón, se ejecuta el método salir
             @Override
             public void actionPerformed(ActionEvent event) {
-                exir();
+                salir();
             }
         });
         panelPrincipal.add(botonSalir);
@@ -102,7 +101,7 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
 
     }
 
-    public void exir() {//Método para salir de la pantalla
+    public void salir() {//Método para salir de la pantalla
         this.setVisible(false);//Oculta la ventana actual
         this.dispose();
         GameScreen1 frame = new GameScreen1();//Crea una nueva ventana del menu inicial
