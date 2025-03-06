@@ -11,15 +11,6 @@ public class HelpScreen extends JFrame {
 	private JTextField textField;
 	private JTextField txtInstructions;
 	
-	private void exit() {
-		this.setVisible(false);
-		this.dispose();
-		GameScreen1 frame = new GameScreen1();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-	}
-
-	
 	public HelpScreen() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -130,5 +121,12 @@ public class HelpScreen extends JFrame {
 		btnExit.setBounds(177, 365, 150, 40);//UBICACIÓN DEL BOTÓN
 		contentPane.add(btnExit);
 		
+	}
+	private void exit() {
+		this.setVisible(false);
+		this.dispose();
+		GameScreen1 frame = new GameScreen1();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 }
