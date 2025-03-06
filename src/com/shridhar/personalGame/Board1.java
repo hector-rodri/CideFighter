@@ -35,10 +35,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
             @Override
             public void keyReleased(KeyEvent e) { // Maneja el evento cuando se suelta una tecla
                 switch (e.getKeyCode()) { // Verifica qué tecla se soltó
-                    case KeyEvent.VK_A, KeyEvent.VK_D -> ryu.setSpeed(0); // Detiene a Ryu cuando se sueltan las teclas
-                                                                          // A o D
-                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> ken.setSpeed(0); // Detiene a Ken cuando se sueltan las
-                                                                                 // teclas de flecha izquierda o derecha
+                    case KeyEvent.VK_A, KeyEvent.VK_D -> ryu.setSpeed(0); // Detiene a Ryu cuando se sueltan las teclas A o D
+                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> ken.setSpeed(0); // Detiene a Ken cuando se sueltan las teclas de flecha izquierda o derecha
                 }
             }
 
