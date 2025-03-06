@@ -84,7 +84,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		}
 	
 	Ryu(int x, int y){
-		loadImage();
+		loadImage(Ryu.this);
 		loadWalk();
 		loadPunch();
 		loadJump();
