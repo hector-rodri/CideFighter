@@ -2,6 +2,9 @@ package com.shridhar.views;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import com.shridhar.personalGame.Board1;
+
 import java.awt.*;
 
 public class NameScreen extends JFrame {
@@ -71,7 +74,6 @@ public class NameScreen extends JFrame {
         contentPane.add(btnExit);
     }
 
-    // Método para guardar los nombres de los jugadores
     public void savePlayerNames() {
         String player1Name = txtPlayer1Name.getText().trim();
         String player2Name = txtPlayer2Name.getText().trim();
@@ -87,9 +89,15 @@ public class NameScreen extends JFrame {
         this.setVisible(false);
         this.dispose();
 
-        // Asegúrate de que GameScreen1 puede recibir los nombres
-        GameScreen1 gameScreen = new GameScreen1();
-        gameScreen.setVisible(true);
+        Board1 board1 = new Board1();
+        board1.setPlayerNames(player1Name, player2Name);
+
+        JFrame gameFrame = new JFrame("Street Fighter");
+        gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameFrame.setSize(800, 600);
+        gameFrame.setLocationRelativeTo(null);
+        gameFrame.add(board1);
+        gameFrame.setVisible(true);
     }
 
     // Método para salir

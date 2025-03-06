@@ -12,6 +12,14 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private boolean gameOver = false; // Bandera para indicar si el juego ha terminado
     private String winner = ""; // Almacena el ganador
     private JButton replayButton; // Botón para volver a jugar
+    private String player1Name = "Ryu";
+    private String player2Name = "Ken";
+
+
+    public void setPlayerNames(String player1, String player2) {
+        this.player1Name = player1;
+        this.player2Name = player2;
+    }
 
     // Método para iniciar el bucle del juego
     private void gameLoop() {
@@ -164,8 +172,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         g.fillRect(400, 40, Ken.getKencounter(), 40); // Dibuja la barra de vida de Ken
         g.setColor(Color.black); // Establece el color negro
         g.setFont(new Font("Arial", Font.BOLD, 32)); // Establece la fuente
-        g.drawString("RYU", 20, 40); // Dibuja el texto "RYU"
-        g.drawString("KEN", 380, 40); // Dibuja el texto "KEN"
+        g.drawString(player1Name, 20, 40); // Dibuja el texto "RYU"
+        g.drawString(player2Name, 380, 40); // Dibuja el texto "KEN"
     }
 
     private void drawGameOver(Graphics g) {
