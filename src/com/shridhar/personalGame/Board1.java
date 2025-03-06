@@ -1,6 +1,6 @@
 package com.shridhar.personalGame; // Define el paquete al que pertenece esta clase
 
-import java.awt.*; //Paquete especial
+import java.awt.*;
 import java.awt.event.*; 
 import javax.swing.*;
 
