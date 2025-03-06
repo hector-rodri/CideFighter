@@ -54,7 +54,7 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
         JButton botonGuardar = new JButton("GUARDAR");//Botón para botonGuardar los nombres
         botonGuardar.setFont(new Font("Tahoma", Font.BOLD, 18));//Fuente y tamaño
         botonGuardar.setForeground(new Color(44, 150, 57));//Color del texto
-        botonGuardar.setBackground(new Color(190, 190, 190));//Color de fondo
+        botonGuardar.setBackground(new Color(235, 235, 235));//Color de fondo
         botonGuardar.setFocusPainted(false);//Quita el contorno al hacer clic
         botonGuardar.setBorderPainted(false);//Quita el borde del botón
         botonGuardar.setBounds(175, 200, 150, 40);//Posición y tamaño
@@ -69,7 +69,7 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
         //BOTÓN SALIR
         JButton botonSalir = new JButton("SORTIR");//Botón para botonSalir
         botonSalir.setFont(new Font("Tahoma", Font.BOLD, 18));//Fuente y tamaño
-        botonSalir.setBackground(new Color(190, 190, 190));// Color de fondo
+        botonSalir.setBackground(new Color(235, 235, 235));// Color de fondo
         botonSalir.setForeground(new Color(44, 150, 57));//Color del texto
         botonSalir.setBounds(175, 260, 150, 40);//Posición y tamaño
         botonSalir.addActionListener(new ActionListener() {//Cuando se hace clic en el botón, se ejecuta el método salir
@@ -79,6 +79,22 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
             }
         });
         panelPrincipal.add(botonSalir);
+
+        try { //Fuente20
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(font);
+            Font buttonFont = font.deriveFont(Font.BOLD, 20f);
+            
+            botonGuardar.setFont(buttonFont);
+            botonSalir.setFont(buttonFont);
+            jugador2.setFont(buttonFont);
+            jugador1.setFont(buttonFont);
+            titulo.setFont(buttonFont);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void guardar() {//Método para guardar los nombres de los jugadores.
@@ -113,5 +129,4 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
         frame.setVisible(true);//Muestra la nueva pantalla.
         frame.setLocationRelativeTo(null);
     }
-
 }

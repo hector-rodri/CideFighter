@@ -64,6 +64,7 @@ public class GameScreen1 extends JFrame {
 		setTitle("CIDE FIGHTER");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 500);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(44, 150, 57));//COLOR DE FONDO
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,13 +74,13 @@ public class GameScreen1 extends JFrame {
 		//IMAGEN
 		ImageIcon icono = new ImageIcon(getClass().getResource("/com/shridhar/personalGame/cide.jpg")); //Ruta de la imagen
         JLabel etiqueta = new JLabel(icono);
-		etiqueta.setBounds(100, 30, 150, 150); //UBICACIÓN DE LA IMAGEN
+		etiqueta.setBounds(80, 5, 190, 190); //UBICACIÓN DE LA IMAGEN
 		contentPane.add(etiqueta);
 		
 		//BARRA DE CARGA
 		progressBar.setBackground(new Color(190, 190, 190));//COLOR DE FONDO
 		progressBar.setStringPainted(true);
-		progressBar.setBounds(35, 195, 278, 28);//UBICACIÓN
+		progressBar.setBounds(35, 200, 278, 28);//UBICACIÓN
 		progressBar.setVisible(false);
 		contentPane.add(progressBar);
 		
@@ -93,6 +94,7 @@ public class GameScreen1 extends JFrame {
 			}
 		});
 		btnStartGame.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
+		btnStartGame.setBackground(new Color(235, 235, 235));//COLOR DE FONDO
 		btnStartGame.setForeground(new Color(44, 150, 57));//COLOR LETRA
 		btnStartGame.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnStartGame.setBounds(53, 237, 241, 59);//UBICACIÓN DEL BOTÓN
@@ -101,7 +103,7 @@ public class GameScreen1 extends JFrame {
 		//BOTÓN MI JUGADOR
 		JButton btnCustomize = new JButton("JUGADOR");
         btnCustomize.addActionListener(e -> customizePlayer());
-        btnCustomize.setBackground(new Color(190, 190, 190));//COLOR DE FONDO
+        btnCustomize.setBackground(new Color(235, 235, 235));//COLOR DE FONDO
         btnCustomize.setForeground(new Color(44, 150, 57));//COLOR LETRA
         btnCustomize.setFont(new Font("Tahoma", Font.BOLD, 28));
         btnCustomize.setBounds(53, 318, 241, 50);//UBICACIÓN
@@ -115,9 +117,23 @@ public class GameScreen1 extends JFrame {
 			}
 		});
 		btnNewButton.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
+		btnNewButton.setBackground(new Color(235, 235, 235));//COLOR DE FONDO
 		btnNewButton.setForeground(new Color(44, 150, 57));//COLOR LETRA
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnNewButton.setBounds(80, 390, 181, 52);//UBICACIÓN DEL BOTÓN
 		contentPane.add(btnNewButton);
+		try {
+			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(font);
+			Font buttonFont = font.deriveFont(Font.BOLD, 28f);
+			
+			// Set the font for the buttons
+			btnStartGame.setFont(buttonFont); 
+			btnCustomize.setFont(buttonFont);
+			btnNewButton.setFont(buttonFont);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
