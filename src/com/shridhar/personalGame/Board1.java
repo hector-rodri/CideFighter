@@ -1,10 +1,8 @@
 package com.shridhar.personalGame; // Define el paquete al que pertenece esta clase
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.*; 
+import java.awt.event.*; 
 import javax.swing.*;
-
-import com.shridhar.views.GameScreen1;
 
 public class Board1 extends JPanel { // Define la clase Board1 que extiende JPanel
     Camera1 camera1 = new Camera1(); // Objeto para manejar el fondo
@@ -15,8 +13,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private String winner = ""; // Almacena el ganador
     private JButton replayButton; // Botón para volver a jugar
     private JButton homeButton; // Botón para volver a inicio
-    private String player1Name = "Ryu";
-    private String player2Name = "Ken";
+    private String player1Name = "RYU";
+    private String player2Name = "KEN";
 
     public void setPlayerNames(String player1, String player2) {
         this.player1Name = player1;
@@ -35,10 +33,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
             @Override
             public void keyReleased(KeyEvent e) { // Maneja el evento cuando se suelta una tecla
                 switch (e.getKeyCode()) { // Verifica qué tecla se soltó
-                    case KeyEvent.VK_A, KeyEvent.VK_D -> ryu.setSpeed(0); // Detiene a Ryu cuando se sueltan las teclas
-                                                                          // A o D
-                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> ken.setSpeed(0); // Detiene a Ken cuando se sueltan las
-                                                                                 // teclas de flecha izquierda o derecha
+                    case KeyEvent.VK_A, KeyEvent.VK_D -> ryu.setSpeed(0); // Detiene a Ryu cuando se sueltan las teclas A o D
+                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> ken.setSpeed(0); // Detiene a Ken cuando se sueltan las teclas de flecha izquierda o derecha
                 }
             }
 
@@ -70,7 +66,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                     case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER); // Ryu usa un ataque especial
 
                     // Controles Ken (Jugador 2)
-
+                    
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
                     case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
                     case KeyEvent.VK_UP -> ken.jump(); // Ahora Ken puede saltar correctamente
@@ -93,6 +89,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         });
     }
 
+    
     // Método mejorado para verificar colisiones, permitiendo ataques en el aire
     private boolean isCollide(Sprite1 attacker, Sprite1 defender) {
         int xDistance = Math.abs(attacker.getX() - defender.getX()); // Calcula la distancia en el eje X
@@ -105,11 +102,11 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void checkWinner() {
         if (Ryu.getRyucounter() <= 0) { // Verifica si la vida de Ryu es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = player2Name + " GUANYA!!"; // Establece a Ken como ganador
-
+            winner = player2Name+" GUANYA!!"; // Establece a Ken como ganador
+            
         } else if (Ken.getKencounter() <= 0) { // Verifica si la vida de Ken es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = player1Name + " GUANYA!!"; // Establece a Ryu como ganador
+            winner = player1Name+" GUANYA!!"; // Establece a Ryu como ganador
         }
     }
 
@@ -135,23 +132,14 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         if (gameOver) { // Verifica si el juego ha terminado
             drawGameOver(g); // Dibuja la pantalla de fin de juego
             replayButton.setVisible(true); // Muestra el botón cuando el juego ha terminado
-            homeButton.setVisible(true); // Muestra el botón de volver a inicio cuando el juego ha terminado
         }
-    }
-
-    public void salir() {// Método para salir de la pantalla
-        this.setVisible(false);// Oculta la ventana actual
-        SwingUtilities.getWindowAncestor(this).dispose(); // Cierra la ventana actual
-        GameScreen1 frame = new GameScreen1();// Crea una nueva ventana del menu inicial
-        frame.setVisible(true);// Muestra la nueva pantalla.
-        frame.setLocationRelativeTo(null);
     }
 
     private void initReplayButton() {
         replayButton = new JButton("Tornar a Jugar"); // Crea el botón de volver a jugar
-        replayButton.setBounds(300, 320, 200, 60); // Establece la posición y tamaño del botón
-        replayButton.setForeground(new Color(255, 255, 255)); // COLOR LETRA
-        replayButton.setBackground(new Color(252, 28, 3)); // COLOR FONDO
+        replayButton.setBounds(300, 300, 200, 60); // Establece la posición y tamaño del botón
+		replayButton.setForeground(new Color(255, 255, 255));//COLOR LETRA
+        replayButton.setBackground(new Color(252, 28, 3));//COLOR FONDO
         replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
         replayButton.setVisible(false); // Inicialmente, el botón no es visible
         replayButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
@@ -160,24 +148,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                 resetGame(); // Reinicia el juego cuando se hace clic en el botón
             }
         });
-
-        homeButton = new JButton("Inici"); // Crea el botón de volver a inicio
-        homeButton.setBounds(328, 400, 150, 60); // Establece la posición y tamaño del botón
-        homeButton.setForeground(new Color(255, 255, 255)); // COLOR LETRA
-        homeButton.setBackground(new Color(50, 168, 66)); // COLOR FONDO
-        homeButton.setFont(new Font("Verdana", Font.BOLD, 20));
-        homeButton.setVisible(false); // Inicialmednte, el botón no es visible
-        homeButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                salir(); // Vuelve a la pantalla de inicio cuando se hace clic en el botón
-                homeButton.setVisible(false); // Oculta el botón de volver a inicio
-            }
-        });
-
         this.setLayout(null); // Establece el diseño del panel como nulo
         this.add(replayButton); // Añade el botón al panel
-        this.add(homeButton); // Añade el botón al panel
     }
 
     private void resetGame() {

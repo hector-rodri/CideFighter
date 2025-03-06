@@ -11,7 +11,7 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
 
     public NameScreen() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Cierra la aplicación al cerrar la ventana
-        setBounds(100, 100, 501, 447);//Establece el tamaño y posición inicial de la ventana.
+        setBounds(100, 100, 501, 447);//Establece el tamaño y posición inicial de la ventana
         setLocationRelativeTo(null);//Centra la ventana en la pantalla
         setResizable(false);//Impide cambiar el tamaño de la ventana
 
@@ -89,9 +89,10 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
             JOptionPane.showMessageDialog(this, "Si us plau, introdueix els noms de tots els jugadors!", "Error", JOptionPane.ERROR_MESSAGE);
             return;//Muestra un mensaje de error
         }
+        
 
         Board1 board1 = new Board1();//Crea una ventana de juego
-        board1.setPlayerNames(jugadorNombre1, jugadorNombre2);//Establece los nombres introducidos
+        board1.setPlayerNames(jugadorNombre1.toUpperCase(), jugadorNombre2.toUpperCase());//Establece los nombres introducidos
         JFrame game = new JFrame();
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         game.setSize(800, 600); 
