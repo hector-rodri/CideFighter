@@ -163,7 +163,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	private void drawPunch(Graphics g) {
 		g.drawImage(punchImages[punchIndex], x, y, w, h, null);
 		punchIndex++;
-		if(punchIndex>2) {
+		if(punchIndex==punchImages.length) {
 			punchIndex = 0;
 			mode = WALK;
 		}
@@ -173,7 +173,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	private void drawWalk(Graphics g) {
 		g.drawImage(walkImages[walkIndex], x, y, w, h, null);
 		walkIndex++;
-		if(walkIndex>4) {
+		if(walkIndex==walkImages.length) {
 			walkIndex = 0;
 		}
 	}
@@ -184,7 +184,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		if(mydelay1==2) {
 		g.drawImage(fallImages[fallIndex], x, y, w, h, null);
 		fallIndex++;
-		if(fallIndex>7) {
+		if(fallIndex==fallImages.length) {
 			fallIndex = 0;
 			mode = WALK;
 		}
@@ -197,7 +197,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	private void drawJump(Graphics g) {
 		g.drawImage(jumpImages[jumpIndex], x, y, w, h, null);
 		jumpIndex++;
-		if(jumpIndex>4) {
+		if(jumpIndex==jumpImages.length) {
 			jumpIndex = 0;
 			mode = WALK;
 		}
@@ -208,7 +208,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	private void drawKick(Graphics g) {
 		g.drawImage(kickImages[kickIndex], x, y, w, h, null);
 		kickIndex++;
-		if(kickIndex>3) {
+		if(kickIndex==kickImages.length) {
 			kickIndex = 0;
 			mode = WALK;
 		}
@@ -218,7 +218,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	private void drawPower(Graphics g) {
 		g.drawImage(powerImages[powerIndex], x, y, w, h, null);
 		powerIndex++;
-		if(powerIndex>8) {
+		if(powerIndex==powerImages.length) {
 			powerIndex = 0;
 			mode = WALK;
 		}

@@ -80,15 +80,13 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                             Ryu.setRyucounter(Ryu.getRyucounter() - 20); // Reduce la vida de Ryu si hay colisión
                         }
                     }
-                    // case KeyEvent.VK_NUMPAD2 -> {
-                    // ken.setMode(IPlayer1.KICK); // Ken lanza una patada
-                    // if (isCollide(ken, ryu)) {
-                    // Ryu.setRyucounter(Ryu.getRyucounter() - 30); // Reduce la vida de Ryu si hay
-                    // colisión
-                    // }
-                    // }
-                    // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER); // Ken usa un ataque
-                    // especial
+                    case KeyEvent.VK_NUMPAD2 -> {
+                        ken.setMode(IPlayer1.KICK); // Ken lanza una patada
+                        if (isCollide(ken, ryu)) {
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 30); // Reduce la vida de Ryu si hay colisión
+                        }
+                    }
+                    // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER); // Ken usa un ataque especial
                 }
                 checkWinner(); // Verificar si hay un ganador después de cada acción
             }
