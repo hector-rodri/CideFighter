@@ -71,9 +71,9 @@ public class GameScreen1 extends JFrame {
 		contentPane.setLayout(null);
 
 		//IMAGEN
-		ImageIcon icono = new ImageIcon("C:\\Users\\hector\\Desktop\\CideFighter\\src\\com\\shridhar\\personalGame\\cide.jpg"); //Ruta de la imagen
+		ImageIcon icono = new ImageIcon(getClass().getResource("/com/shridhar/personalGame/cide.jpg")); //Ruta de la imagen
         JLabel etiqueta = new JLabel(icono);
-		etiqueta.setBounds(100, 20, 150, 150); //UBICACIÓN DE LA IMAGEN
+		etiqueta.setBounds(100, 30, 150, 150); //UBICACIÓN DE LA IMAGEN
 		contentPane.add(etiqueta);
 		
 		//BARRA DE CARGA

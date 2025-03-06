@@ -99,6 +99,10 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
         game.setLocationRelativeTo(null); 
         game.add(board1);
         game.setVisible(true);
+        
+        //Asegurarse de que se cierre la ventana actual
+        this.setVisible(false);//Oculta la ventana actual
+        this.dispose();//Libera los recursos de la ventana actual
 
     }
 

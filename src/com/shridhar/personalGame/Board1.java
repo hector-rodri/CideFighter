@@ -12,9 +12,9 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private boolean gameOver = false; // Bandera para indicar si el juego ha terminado
     private String winner = ""; // Almacena el ganador
     private JButton replayButton; // Botón para volver a jugar
+    private JButton homeButton; // Botón para volver a inicio
     private String player1Name = "RYU";
     private String player2Name = "KEN";
-
 
     public void setPlayerNames(String player1, String player2) {
         this.player1Name = player1;
