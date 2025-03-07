@@ -66,13 +66,13 @@ public class GameScreen1 extends JFrame {
 		setBounds(100, 100, 370, 500);
 		
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(44, 150, 57));//COLOR DE FONDO
+		contentPane.setBackground(new Color(232, 232, 232));//COLOR DE FONDO
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		//IMAGEN
-		ImageIcon icono = new ImageIcon(getClass().getResource("/com/shridhar/personalGame/cide.jpg")); //Ruta de la imagen
+		ImageIcon icono = new ImageIcon(getClass().getResource("/com/shridhar/personalGame/cide.png")); //Ruta de la imagen
         JLabel etiqueta = new JLabel(icono);
 		etiqueta.setBounds(80, 5, 190, 190); //UBICACIÓN DE LA IMAGEN
 		contentPane.add(etiqueta);
@@ -94,8 +94,8 @@ public class GameScreen1 extends JFrame {
 			}
 		});
 		btnStartGame.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
-		btnStartGame.setBackground(new Color(235, 235, 235));//COLOR DE FONDO
-		btnStartGame.setForeground(new Color(44, 150, 57));//COLOR LETRA
+		btnStartGame.setForeground(new Color(235, 235, 235));//COLOR DE FONDO
+		btnStartGame.setBackground(new Color(44, 150, 57));//COLOR LETRA
 		btnStartGame.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnStartGame.setBounds(53, 237, 241, 59);//UBICACIÓN DEL BOTÓN
 		contentPane.add(btnStartGame);
@@ -103,8 +103,8 @@ public class GameScreen1 extends JFrame {
 		//BOTÓN MI JUGADOR
 		JButton btnCustomize = new JButton("JUGADOR");
         btnCustomize.addActionListener(e -> customizePlayer());
-        btnCustomize.setBackground(new Color(235, 235, 235));//COLOR DE FONDO
-        btnCustomize.setForeground(new Color(44, 150, 57));//COLOR LETRA
+        btnCustomize.setForeground(new Color(235, 235, 235));
+        btnCustomize.setBackground(new Color(44, 150, 57));
         btnCustomize.setFont(new Font("Tahoma", Font.BOLD, 28));
         btnCustomize.setBounds(53, 318, 241, 50);//UBICACIÓN
         contentPane.add(btnCustomize);
@@ -117,8 +117,8 @@ public class GameScreen1 extends JFrame {
 			}
 		});
 		btnNewButton.setBackground(new Color(190, 190, 190));//COLOR FONDO BOTÓN
-		btnNewButton.setBackground(new Color(235, 235, 235));//COLOR DE FONDO
-		btnNewButton.setForeground(new Color(44, 150, 57));//COLOR LETRA
+		btnNewButton.setForeground(new Color(235, 235, 235));
+		btnNewButton.setBackground(new Color(44, 150, 57));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 28));
 		btnNewButton.setBounds(80, 390, 181, 52);//UBICACIÓN DEL BOTÓN
 		contentPane.add(btnNewButton);
