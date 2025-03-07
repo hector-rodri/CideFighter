@@ -8,9 +8,7 @@ import java.awt.event.*;
 public class HelpScreen extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField txtInstructions;
-	
+
 	public HelpScreen() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,13 +18,13 @@ public class HelpScreen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblInstructions = new JLabel("INSTRUCCIONS");
 		lblInstructions.setForeground(Color.black);
 		lblInstructions.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblInstructions.setBounds(157, 20, 200, 46);
 		contentPane.add(lblInstructions);
-		
+
 		JLabel jugador1 = new JLabel("RYU JUGADOR 1");
 		jugador1.setFont(new Font("Tahoma", Font.BOLD, 19));
 		jugador1.setBounds(20, 75, 304, 29);
@@ -44,7 +42,7 @@ public class HelpScreen extends JFrame {
 		lblVkrightIncrease.setBounds(20, 135, 304, 29);
 		lblVkrightIncrease.setForeground(new Color(235, 235, 235));
 		contentPane.add(lblVkrightIncrease);
-		
+
 		JLabel lblVkdownDecrease = new JLabel("Tecla (S) :  Acotar-se");
 		lblVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblVkdownDecrease.setBounds(20, 170, 304, 29);
@@ -70,11 +68,10 @@ public class HelpScreen extends JFrame {
 		contentPane.add(lblVklDecrease);
 
 		JLabel ldlVklPoderespecial = new JLabel("Tecla (J) :  Poder");
-		ldlVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));	
+		ldlVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		ldlVklPoderespecial.setBounds(20, 310, 304, 29);
 		ldlVklPoderespecial.setForeground(new Color(235, 235, 235));
 		contentPane.add(ldlVklPoderespecial);
-
 
 		JLabel jugador2 = new JLabel("KEN JUGADOR 2");
 		jugador2.setFont(new Font("Tahoma", Font.BOLD, 19));
@@ -124,7 +121,6 @@ public class HelpScreen extends JFrame {
 		ldlVklPoderespecial2.setForeground(new Color(235, 235, 235));
 		contentPane.add(ldlVklPoderespecial2);
 
-		
 		JButton btnExit = new JButton("SORTIR");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -132,17 +128,18 @@ public class HelpScreen extends JFrame {
 			}
 		});
 		btnExit.setFont(new Font("Tahoma", Font.BOLD, 28));
-		btnExit.setBackground(new Color(235, 235, 235));//COLOR FONDO BOTÓN
-		btnExit.setForeground(new Color(44, 150, 57));//COLOR LETRA
-		btnExit.setBounds(177, 365, 150, 40);//UBICACIÓN DEL BOTÓN
+		btnExit.setBackground(new Color(235, 235, 235));// COLOR FONDO BOTÓN
+		btnExit.setForeground(new Color(44, 150, 57));// COLOR LETRA
+		btnExit.setBounds(177, 365, 150, 40);// UBICACIÓN DEL BOTÓN
 		contentPane.add(btnExit);
-		
-		try { //Fuente18
-			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+
+		try { // Fuente22
+			Font font = Font.createFont(Font.TRUETYPE_FONT,
+					getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			ge.registerFont(font);
-			Font buttonFont = font.deriveFont(Font.ITALIC, 18f);
-			
+			Font buttonFont = font.deriveFont(Font.ITALIC, 22f);
+
 			ldlVklPoderespecial2.setFont(buttonFont);
 			lblVklDecrease2.setFont(buttonFont);
 			lblVkrIncrease2.setFont(buttonFont);
@@ -158,28 +155,27 @@ public class HelpScreen extends JFrame {
 			lblVkrightIncrease.setFont(buttonFont);
 			lblVkupIncrease.setFont(buttonFont);
 
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		try { //Fuente 26
-			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+		try { // Fuente 26
+			Font font = Font.createFont(Font.TRUETYPE_FONT,
+					getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			ge.registerFont(font);
-			Font buttonFont = font.deriveFont(Font.BOLD, 26f);
-			
+			Font buttonFont = font.deriveFont(Font.BOLD, 30f);
+
 			btnExit.setFont(buttonFont);
 			jugador2.setFont(buttonFont);
 			jugador1.setFont(buttonFont);
 			lblInstructions.setFont(buttonFont);
-			
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	private void exit() {
 		this.setVisible(false);
 		this.dispose();

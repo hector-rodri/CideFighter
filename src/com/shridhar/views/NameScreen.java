@@ -55,7 +55,8 @@ public class NameScreen extends JFrame {// Define la clase que hereda de JFrame
         botonSalir.setBackground(new Color(44, 150, 57));// Color de fondo
         botonSalir.setForeground(new Color(235, 235, 235));// Color del texto
         botonSalir.setBounds(80, 240, 150, 50);// Posición y tamaño
-        botonSalir.addActionListener(new ActionListener() {// Cuando se hace clic en el botón, se ejecuta el método salir
+        botonSalir.addActionListener(new ActionListener() {// Cuando se hace clic en el botón, se ejecuta el método
+                                                           // salir
             @Override
             public void actionPerformed(ActionEvent event) {
                 salir();
