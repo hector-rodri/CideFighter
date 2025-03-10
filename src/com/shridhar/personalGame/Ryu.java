@@ -106,9 +106,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		walkImages[3]= img.getSubimage(221, 634, 60, 95);
 		walkImages[4]= img.getSubimage(296, 635, 54, 94);
 		walkImages[5]= img.getSubimage(364, 636, 56, 93);
-		// walkImages[6]= img.getSubimage(428, 641, 63, 89);
-		// walkImages[7]= img.getSubimage(497, 636, 61, 93);
-		// walkImages[8]= img.getSubimage(565, 635, 54, 94);
+
 	}
 	
 	BufferedImage punchImages[] = new BufferedImage[5];
@@ -122,48 +120,44 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	
 	BufferedImage fallImages[] = new BufferedImage[8];
 	public void loadFall() {
-		fallImages[0]= img.getSubimage(951, 1127, 43, 74);
-		fallImages[1]= img.getSubimage(372, 1825, 45, 59);
-		fallImages[2]= img.getSubimage(861, 1151, 72, 39);
-		fallImages[3]= img.getSubimage(442, 1830, 72, 42);
-		fallImages[4]= img.getSubimage(539, 1849, 74, 27);
-		fallImages[5]= img.getSubimage(539, 1849, 74, 27);
-		fallImages[6]= img.getSubimage(539, 1849, 74, 27);
-		fallImages[7]= img.getSubimage(539, 1849, 74, 27);
+		// fallImages[0]= img.getSubimage(951, 1127, 43, 74);
+		// fallImages[1]= img.getSubimage(372, 1825, 45, 59);
+		// fallImages[2]= img.getSubimage(861, 1151, 72, 39);
+		// fallImages[3]= img.getSubimage(442, 1830, 72, 42);
+		// fallImages[4]= img.getSubimage(539, 1849, 74, 27);
+		// fallImages[5]= img.getSubimage(539, 1849, 74, 27);
+		// fallImages[6]= img.getSubimage(539, 1849, 74, 27);
+		// fallImages[7]= img.getSubimage(539, 1849, 74, 27);
 	}
 
-	BufferedImage jumpImages[] = new BufferedImage[5];
+	BufferedImage jumpImages[] = new BufferedImage[7];
 	public void loadJump() {
-		jumpImages[0]= img.getSubimage(618, 1051, 30, 73);
-		jumpImages[1]= img.getSubimage(682, 1034, 33, 90);
-		jumpImages[2]= img.getSubimage(744, 1046, 29, 81);
-		jumpImages[3]= img.getSubimage(796, 1057, 31, 67);
-		jumpImages[4]= img.getSubimage(618, 1051, 30, 73);	
+		jumpImages[0]= img.getSubimage(721, 818, 63, 108);
+		jumpImages[1]= img.getSubimage(791, 775, 64, 88);
+		jumpImages[2]= img.getSubimage(861, 748, 61, 70);
+		jumpImages[3]= img.getSubimage(925, 739, 62, 65);
+		jumpImages[4]= img.getSubimage(1000, 750, 64, 86);
+		jumpImages[5]= img.getSubimage(1070, 765, 63, 116);
+		jumpImages[6]= img.getSubimage(721, 818, 63, 108);
 	}
 	
-	BufferedImage kickImages[] = new BufferedImage[5];
+	BufferedImage kickImages[] = new BufferedImage[7];
 	public void loadKick() {
-		kickImages[0]= img.getSubimage(497, 2917, 67, 94);
-		kickImages[1]= img.getSubimage(566, 2197, 65, 94);
-		kickImages[2]= img.getSubimage(656, 2921, 118, 90);
-		kickImages[3]= img.getSubimage(566, 2197, 65, 94);
-		kickImages[4]= img.getSubimage(497, 2917, 67, 94);
+		kickImages[0]= img.getSubimage(430, 2559, 65, 94);
+		kickImages[1]= img.getSubimage(497, 2559, 67, 94);
+		kickImages[2]= img.getSubimage(566, 2559, 65, 94);
+		kickImages[3]= img.getSubimage(656, 2563, 118, 90);
+		kickImages[4]= img.getSubimage(656, 2563, 118, 90);
+		kickImages[5]= img.getSubimage(566, 2559, 65, 94);
+		kickImages[6]= img.getSubimage(497, 2559, 67, 94);
+		
 		
 	}
 	
 	BufferedImage powerImages[] = new BufferedImage[1];
 	public void loadPower() {
 		powerImages[0]= img.getSubimage(925, 5105, 133, 129);
-		// powerImages[0]= img.getSubimage(13, 1696, 50, 73);
-		// powerImages[1]= img.getSubimage(92, 1697, 51, 72);
-		// powerImages[2]= img.getSubimage(164, 1702, 62, 67);
-		// powerImages[3]= img.getSubimage(241, 1699, 34, 48);
-		// powerImages[4]= img.getSubimage(290, 1710, 37, 28);
-		// powerImages[5]= img.getSubimage(340, 1712, 33, 24);
-		// powerImages[6]= img.getSubimage(447, 1711, 33, 24);
-		// powerImages[7]= img.getSubimage(525, 1710, 18, 24);
-		// powerImages[8]= img.getSubimage(555, 1710, 33, 24);
-		
+
 	}
 	
 	private int punchIndex = 0;
