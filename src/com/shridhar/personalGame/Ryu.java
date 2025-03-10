@@ -130,15 +130,20 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		// fallImages[7]= img.getSubimage(539, 1849, 74, 27);
 	}
 
-	BufferedImage jumpImages[] = new BufferedImage[7];
+	BufferedImage jumpImages[] = new BufferedImage[12];
 	public void loadJump() {
 		jumpImages[0]= img.getSubimage(721, 818, 63, 108);
 		jumpImages[1]= img.getSubimage(791, 775, 64, 88);
-		jumpImages[2]= img.getSubimage(861, 748, 61, 70);
-		jumpImages[3]= img.getSubimage(925, 739, 62, 65);
-		jumpImages[4]= img.getSubimage(1000, 750, 64, 86);
-		jumpImages[5]= img.getSubimage(1070, 765, 63, 116);
-		jumpImages[6]= img.getSubimage(721, 818, 63, 108);
+		jumpImages[2]= img.getSubimage(791, 775, 64, 88);
+		jumpImages[3]= img.getSubimage(861, 748, 61, 70);
+		jumpImages[4]= img.getSubimage(861, 748, 61, 70);
+		jumpImages[5]= img.getSubimage(925, 739, 62, 65);
+		jumpImages[6]= img.getSubimage(925, 739, 62, 65);
+		jumpImages[7]= img.getSubimage(1000, 750, 64, 86);
+		jumpImages[8]= img.getSubimage(1000, 750, 64, 86);
+		jumpImages[9]= img.getSubimage(1070, 765, 63, 116);
+		jumpImages[10]= img.getSubimage(1070, 765, 63, 116);
+		jumpImages[11]= img.getSubimage(721, 818, 63, 108);
 	}
 	
 	BufferedImage kickImages[] = new BufferedImage[7];
