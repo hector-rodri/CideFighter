@@ -1,6 +1,6 @@
 package com.shridhar.personalGame; // Define el paquete al que pertenece esta clase
 
-import java.awt.*; 
+import java.awt.*;
 import java.awt.event.*; 
 import javax.swing.*;
 
@@ -146,7 +146,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         replayButton = new JButton("Tornar a Jugar"); // Crea el botón de volver a jugar
         replayButton.setBounds(300, 300, 200, 60); // Establece la posición y tamaño del botón
 		replayButton.setForeground(new Color(255, 255, 255));//COLOR LETRA
-        replayButton.setBackground(new Color(252, 28, 3));//COLOR FONDO
+        replayButton.setBackground(new Color(44, 150, 57));//COLOR FONDO
         replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
         replayButton.setVisible(false); // Inicialmente, el botón no es visible
         replayButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
@@ -157,17 +157,30 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         });
         this.setLayout(null); // Establece el diseño del panel como nulo
         this.add(replayButton); // Añade el botón al panel
+        try { // Fuente22
+            Font font = Font.createFont(Font.TRUETYPE_FONT,
+                    getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(font);
+            Font buttonFont = font.deriveFont(Font.BOLD, 22f);
+
+            replayButton.setFont(buttonFont);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void resetGame() {
         gameOver = false; // Indica que el juego no ha terminado
         winner = ""; // Limpia el ganador
-        Ryu.setRyucounter(500); // Restablece la vida de Ryu
-        Ken.setKencounter(500); // Restablece la vida de Ken
-        ryu.setX(100); // Restablece la posición de Ryu
-        ryu.setY(400);
-        ken.setX(600); // Restablece la posición de Ken
-        ken.setY(400);
+
+        Ryu.setRyucounter(300); // Restablece la vida de Ryu
+        Ken.setKencounter(300); // Restablece la vida de Ken
+        ryu = new Ryu(100, 400);
+        ken = new Ken(600, 400);        
+
         replayButton.setVisible(false); // Oculta el botón de volver a jugar
         repaint(); // Redibuja el componente
     }
@@ -179,13 +192,13 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         g.fillRect(400, 40, Ken.getKencounter(), 40); // Dibuja la barra de vida de Ken
         g.setColor(Color.black); // Establece el color negro
         g.setFont(new Font("Arial", Font.BOLD, 32)); // Establece la fuente
-        g.drawString(player1Name, 20, 40); // Dibuja el texto "RYU"
-        g.drawString(player2Name, 380, 40); // Dibuja el texto "KEN"
+        g.drawString(player1Name, 40, 40); // Dibuja el texto "RYU"
+        g.drawString(player2Name, 400, 40); // Dibuja el texto "KEN"
     }
 
     private void drawGameOver(Graphics g) {
-        g.setColor(Color.black); // Establece el color negrito
-        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 60)); // Establece la fuente
-        g.drawString(winner, getWidth() / 2 - 180, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
+        g.setColor(new Color(44, 150, 57)); // Establece el color negrito
+        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 70)); // Establece la fuente
+        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
     }
 }
