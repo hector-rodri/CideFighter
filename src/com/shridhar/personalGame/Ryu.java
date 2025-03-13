@@ -109,13 +109,15 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 
 	}
 	
-	BufferedImage punchImages[] = new BufferedImage[5];
+	BufferedImage punchImages[] = new BufferedImage[6];
 	public void loadPunch() {
 		punchImages[0]= img.getSubimage(273, 1421, 65, 94);
 		punchImages[1]= img.getSubimage(345, 1421, 71, 94);
-		punchImages[2]= img.getSubimage(421, 1422, 109, 93);
-		punchImages[3]= img.getSubimage(345, 1421, 71, 94);
-		punchImages[4]= img.getSubimage(273, 1421, 65, 94);
+		punchImages[2]= img.getSubimage(345, 1421, 71, 94);
+		punchImages[3]= img.getSubimage(421, 1422, 109, 93);
+		punchImages[4]= img.getSubimage(421, 1422, 109, 93);
+		punchImages[5]= img.getSubimage(345, 1421, 71, 94);
+		
 	}
 	
 	BufferedImage fallImages[] = new BufferedImage[8];

@@ -16,12 +16,5 @@ public class GameFrame1 extends JFrame implements GameUtils1 {
 		setVisible(true);
 	}
 	
-	
-
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-////		GameFrame1 frame = new GameFrame1();
-//
-//	}
 
 }
