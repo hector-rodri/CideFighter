@@ -83,7 +83,7 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		}
 
 	Ken(int x, int y){
-		loadImage();
+		loadImage(Ken.this);
 		loadWalk();
 		loadPunch();
 		loadJump();

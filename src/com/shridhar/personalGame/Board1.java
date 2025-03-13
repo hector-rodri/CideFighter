@@ -1,6 +1,6 @@
 package com.shridhar.personalGame; // Define el paquete al que pertenece esta clase
 
-import java.awt.*; 
+import java.awt.*;
 import java.awt.event.*; 
 import javax.swing.*;
 
@@ -172,8 +172,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         g.fillRect(400, 40, Ken.getKencounter(), 40); // Dibuja la barra de vida de Ken
         g.setColor(Color.black); // Establece el color negro
         g.setFont(new Font("Arial", Font.BOLD, 32)); // Establece la fuente
-        g.drawString(player1Name, 20, 40); // Dibuja el texto "RYU"
-        g.drawString(player2Name, 380, 40); // Dibuja el texto "KEN"
+        g.drawString(player1Name, 40, 40); // Dibuja el texto "RYU"
+        g.drawString(player2Name, 400, 40); // Dibuja el texto "KEN"
     }
 
     private void drawGameOver(Graphics g) {

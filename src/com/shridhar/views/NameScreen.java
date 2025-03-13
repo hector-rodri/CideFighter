@@ -23,13 +23,14 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
 
         //TITULO
         JLabel titulo = new JLabel("INTRODUEIX EL TEU NOM:");//Crea un título
-        titulo.setForeground(Color.black);//Color del texto 
+        titulo.setForeground(Color.white);//Color del texto 
         titulo.setFont(new Font("Tahoma", Font.BOLD, 20));//Fuente y tamaño
         titulo.setBounds(120, 20, 400, 46);//Posición y tamaño
         panelPrincipal.add(titulo);
 
         //JUGADOR 1
         JLabel jugador1 = new JLabel("JUGADOR 1");//Etiqueta para el primer jugador
+        jugador1.setForeground(Color.white);//Color del texto 
         jugador1.setFont(new Font("Tahoma", Font.BOLD, 19));//Fuente y tamaño
         jugador1.setBounds(20, 75, 200, 29);//Posición y tamaño
         panelPrincipal.add(jugador1);
@@ -41,13 +42,14 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
 
         //JUGADOR 2
         JLabel jugador2 = new JLabel("JUGADOR 2");//Etiqueta para el segundo jugador
+        jugador2.setForeground(Color.white);//Color del texto 
         jugador2.setFont(new Font("Tahoma", Font.BOLD, 19));//Fuente y tamaño
-        jugador2.setBounds(280, 75, 200, 29);//Posición y tamaño
+        jugador2.setBounds(270, 75, 200, 29);//Posición y tamaño
         panelPrincipal.add(jugador2);
 
         nombreJugador2 = new JTextField();//Campo de texto para el nombre del jugador
         nombreJugador2.setFont(new Font("Tahoma", Font.PLAIN, 16));//Fuente y tamaño
-        nombreJugador2.setBounds(280, 115, 200, 30);//Posición y tamaño
+        nombreJugador2.setBounds(270, 115, 200, 30);//Posición y tamaño
         panelPrincipal.add(nombreJugador2);
 
         //BOTÓN GUARDAR
