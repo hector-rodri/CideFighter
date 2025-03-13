@@ -3,12 +3,16 @@ package com.shridhar.personalGame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import javax.swing.Timer;
 
 public class Ken extends Sprite1 implements IPlayer1 {
 	private int mode;
 	public boolean kendamage;
 	public static int kencounter = 300;
+	private boolean canAttack = true;
+	private boolean canDealDamage = true;
 
+	
 	public boolean isKendamage() {
 		return kendamage;
 	}
@@ -32,6 +36,25 @@ public class Ken extends Sprite1 implements IPlayer1 {
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
+	 // Método para atacar con delay
+    public void attackWithDelay(Runnable attackAction, int delayMs) {
+    if (canAttack) {
+        attackAction.run(); // Ejecuta el ataque
+        canAttack = false;  // Bloquea nuevos ataques
+        Timer timer = new Timer(delayMs, (e) -> canAttack = true); // Permite el siguiente ataque después del retraso
+        timer.setRepeats(false); // No queremos repeticiones continuas
+        timer.start(); // Inicia el Timer
+    }
+}
+
+    // Enfriamiento para el daño
+    public void resetDamageCooldown(int cooldownMs) {
+        canDealDamage = false;
+        Timer timer = new Timer(cooldownMs, (e) -> canDealDamage = true);
+		timer.setRepeats(false);
+		timer.start();
+    }
+	
 	
 	public void move() {
 		int newX = getX() + speed; // Calcula la nueva posición en X
@@ -96,6 +119,11 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		this.y = FLOOR-this.h;
 		
 	}
+	
+    // Getter para canDealDamage
+    public boolean isCanDealDamage() {
+        return canDealDamage;
+    }
 	
 	BufferedImage walkImages [] = new BufferedImage[6];
 	public void loadWalk() {
