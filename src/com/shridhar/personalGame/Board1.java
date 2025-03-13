@@ -139,7 +139,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         replayButton = new JButton("Tornar a Jugar"); // Crea el botón de volver a jugar
         replayButton.setBounds(300, 300, 200, 60); // Establece la posición y tamaño del botón
 		replayButton.setForeground(new Color(255, 255, 255));//COLOR LETRA
-        replayButton.setBackground(new Color(252, 28, 3));//COLOR FONDO
+        replayButton.setBackground(new Color(44, 150, 57));//COLOR FONDO
         replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
         replayButton.setVisible(false); // Inicialmente, el botón no es visible
         replayButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
@@ -150,6 +150,19 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         });
         this.setLayout(null); // Establece el diseño del panel como nulo
         this.add(replayButton); // Añade el botón al panel
+        try { // Fuente22
+            Font font = Font.createFont(Font.TRUETYPE_FONT,
+                    getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(font);
+            Font buttonFont = font.deriveFont(Font.BOLD, 22f);
+
+            replayButton.setFont(buttonFont);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void resetGame() {
