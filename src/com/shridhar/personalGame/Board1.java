@@ -56,7 +56,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                         ryu.setMode(IPlayer1.PUNCH);
                         if (isCollide(ryu, ken) && ryu.isCanDealDamage()) {
                             Ken.setKencounter(Ken.getKencounter() - 20);
-                            ryu.resetDamageCooldown(1000); // Enfriamiento de 500ms entre daños
+                            ryu.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500); // Retraso de 500ms entre ataques
                     
@@ -64,7 +64,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                         ken.setMode(IPlayer1.PUNCH);
                         if (isCollide(ken, ryu) && ken.isCanDealDamage()) {
                             Ryu.setRyucounter(Ryu.getRyucounter() - 20);
-                            ken.resetDamageCooldown(1000); // Enfriamiento de 500ms entre daños
+                            ken.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500); // Retraso de 500ms entre ataques
 
