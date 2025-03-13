@@ -51,12 +51,23 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                     case KeyEvent.VK_W -> {
                         ryu.jump(); // Ahora Ryu puede saltar correctamente
                     }
-                    case KeyEvent.VK_G -> {
-                        ryu.setMode(IPlayer1.PUNCH); // Ryu lanza un puñetazo
-                        if (isCollide(ryu, ken)) {
-                            Ken.setKencounter(Ken.getKencounter() - 20); // Reduce la vida de Ken si hay colisión
+
+                    case KeyEvent.VK_G -> ryu.attackWithDelay(() -> {
+                        ryu.setMode(IPlayer1.PUNCH);
+                        if (isCollide(ryu, ken) && ryu.isCanDealDamage()) {
+                            Ken.setKencounter(Ken.getKencounter() - 20);
+                            ryu.resetDamageCooldown(1000); // Enfriamiento de 500ms entre daños
                         }
-                    }
+                    }, 500); // Retraso de 500ms entre ataques
+                    
+                    case KeyEvent.VK_NUMPAD1 -> ken.attackWithDelay(() -> {
+                        ken.setMode(IPlayer1.PUNCH);
+                        if (isCollide(ken, ryu) && ken.isCanDealDamage()) {
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 20);
+                            ken.resetDamageCooldown(1000); // Enfriamiento de 500ms entre daños
+                        }
+                    }, 500); // Retraso de 500ms entre ataques
+
                     case KeyEvent.VK_H -> {
                         ryu.setMode(IPlayer1.KICK); // Ryu lanza una patada
                         if (isCollide(ryu, ken)) {
@@ -70,12 +81,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
                     case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
                     case KeyEvent.VK_UP -> ken.jump(); // Ahora Ken puede saltar correctamente
-                    case KeyEvent.VK_NUMPAD1 -> {
-                        ken.setMode(IPlayer1.PUNCH); // Ken lanza un puñetazo
-                        if (isCollide(ken, ryu)) {
-                            Ryu.setRyucounter(Ryu.getRyucounter() - 20); // Reduce la vida de Ryu si hay colisión
-                        }
-                    }
+                  
                     case KeyEvent.VK_NUMPAD2 -> {
                         ken.setMode(IPlayer1.KICK); // Ken lanza una patada
                         if (isCollide(ken, ryu)) {
@@ -115,6 +121,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         ryu = new Ryu(100, 100); // Crea una instancia de Ryu
         ken = new Ken(600, 100); // Crea una instancia de Ken
         setFocusable(true); // Permite que el panel reciba eventos de teclado
+        SwingUtilities.invokeLater(() -> requestFocusInWindow());
         bindEvents(); // Asocia los eventos de teclado
         gameLoop(); // Inicia el bucle del juego
         initReplayButton(); // Inicializa el botón de volver a jugar
@@ -155,8 +162,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void resetGame() {
         gameOver = false; // Indica que el juego no ha terminado
         winner = ""; // Limpia el ganador
-        Ryu.setRyucounter(300); // Restablece la vida de Ryu
-        Ken.setKencounter(300); // Restablece la vida de Ken
+        Ryu.setRyucounter(500); // Restablece la vida de Ryu
+        Ken.setKencounter(500); // Restablece la vida de Ken
         ryu.setX(100); // Restablece la posición de Ryu
         ryu.setY(400);
         ken.setX(600); // Restablece la posición de Ken
