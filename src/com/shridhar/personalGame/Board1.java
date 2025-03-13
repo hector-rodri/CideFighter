@@ -1,7 +1,7 @@
 package com.shridhar.personalGame; // Define el paquete al que pertenece esta clase
 
 import java.awt.*;
-import java.awt.event.*; 
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Board1 extends JPanel { // Define la clase Board1 que extiende JPanel
@@ -33,10 +33,14 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
             @Override
             public void keyReleased(KeyEvent e) { // Maneja el evento cuando se suelta una tecla
                 switch (e.getKeyCode()) { // Verifica qué tecla se soltó
-                    case KeyEvent.VK_A, KeyEvent.VK_D -> ryu.setSpeed(0); // Detiene a Ryu cuando se sueltan las teclas A o D
-                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> ken.setSpeed(0); // Detiene a Ken cuando se sueltan las teclas de flecha izquierda o derecha
+                    case KeyEvent.VK_A, KeyEvent.VK_D -> ryu.setSpeed(0); // Detiene a Ryu cuando se sueltan las teclas
+                                                                          // A o D
+                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> ken.setSpeed(0); // Detiene a Ken cuando se sueltan las
+                                                                                 // teclas de flecha izquierda o derecha
                 }
             }
+
+            // ...existing code...
 
             @Override
             public void keyPressed(KeyEvent e) { // Maneja el evento cuando se presiona una tecla
@@ -59,7 +63,22 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                             ryu.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500); // Retraso de 500ms entre ataques
-                    
+
+                    case KeyEvent.VK_H -> ryu.attackWithDelay(() -> {
+                        ryu.setMode(IPlayer1.KICK); // Ryu lanza una patada
+                        if (isCollide(ryu, ken)) {
+                            Ken.setKencounter(Ken.getKencounter() - 30); // Reduce la vida de Ken si hay colisión
+                        }
+                    }, 500); // Retraso de 500ms entre ataques
+
+                    case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER); // Ryu usa un ataque especial
+
+                    // Controles Ken (Jugador 2)
+
+                    case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
+                    case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
+                    case KeyEvent.VK_UP -> ken.jump(); // Ahora Ken puede saltar correctamente
+
                     case KeyEvent.VK_NUMPAD1 -> ken.attackWithDelay(() -> {
                         ken.setMode(IPlayer1.PUNCH);
                         if (isCollide(ken, ryu) && ken.isCanDealDamage()) {
@@ -68,34 +87,23 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                         }
                     }, 500); // Retraso de 500ms entre ataques
 
-                    case KeyEvent.VK_H -> {
-                        ryu.setMode(IPlayer1.KICK); // Ryu lanza una patada
-                        if (isCollide(ryu, ken)) {
-                            Ken.setKencounter(Ken.getKencounter() - 30); // Reduce la vida de Ken si hay colisión
-                        }
-                    }
-                    case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER); // Ryu usa un ataque especial
-
-                    // Controles Ken (Jugador 2)
-                    
-                    case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
-                    case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
-                    case KeyEvent.VK_UP -> ken.jump(); // Ahora Ken puede saltar correctamente
-                  
-                    case KeyEvent.VK_NUMPAD2 -> {
+                    case KeyEvent.VK_NUMPAD2 -> ken.attackWithDelay(() -> {
                         ken.setMode(IPlayer1.KICK); // Ken lanza una patada
                         if (isCollide(ken, ryu)) {
                             Ryu.setRyucounter(Ryu.getRyucounter() - 30); // Reduce la vida de Ryu si hay colisión
                         }
-                    }
-                    // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER); // Ken usa un ataque especial
+                    }, 500); // Retraso de 500ms entre ataques
+
+                    // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER); // Ken usa un ataque
+                    // especial
                 }
                 checkWinner(); // Verificar si hay un ganador después de cada acción
             }
+
+            // ...existing code...
         });
     }
 
-    
     // Método mejorado para verificar colisiones, permitiendo ataques en el aire
     private boolean isCollide(Sprite1 attacker, Sprite1 defender) {
         int xDistance = Math.abs(attacker.getX() - defender.getX()); // Calcula la distancia en el eje X
@@ -108,11 +116,11 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void checkWinner() {
         if (Ryu.getRyucounter() <= 0) { // Verifica si la vida de Ryu es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = player2Name+" GUANYA!!"; // Establece a Ken como ganador
-            
+            winner = player2Name + " GUANYA!!"; // Establece a Ken como ganador
+
         } else if (Ken.getKencounter() <= 0) { // Verifica si la vida de Ken es 0 o menos
             gameOver = true; // Indica que el juego ha terminado
-            winner = player1Name+" GUANYA!!"; // Establece a Ryu como ganador
+            winner = player1Name + " GUANYA!!"; // Establece a Ryu como ganador
         }
     }
 
@@ -145,8 +153,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void initReplayButton() {
         replayButton = new JButton("Tornar a Jugar"); // Crea el botón de volver a jugar
         replayButton.setBounds(300, 300, 200, 60); // Establece la posición y tamaño del botón
-		replayButton.setForeground(new Color(255, 255, 255));//COLOR LETRA
-        replayButton.setBackground(new Color(44, 150, 57));//COLOR FONDO
+        replayButton.setForeground(new Color(255, 255, 255));// COLOR LETRA
+        replayButton.setBackground(new Color(44, 150, 57));// COLOR FONDO
         replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
         replayButton.setVisible(false); // Inicialmente, el botón no es visible
         replayButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
@@ -166,7 +174,6 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
 
             replayButton.setFont(buttonFont);
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -179,7 +186,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         Ryu.setRyucounter(300); // Restablece la vida de Ryu
         Ken.setKencounter(300); // Restablece la vida de Ken
         ryu = new Ryu(100, 400);
-        ken = new Ken(600, 400);        
+        ken = new Ken(600, 400);
 
         replayButton.setVisible(false); // Oculta el botón de volver a jugar
         repaint(); // Redibuja el componente
@@ -199,6 +206,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void drawGameOver(Graphics g) {
         g.setColor(new Color(44, 150, 57)); // Establece el color negrito
         g.setFont(new Font("Trebuchet Ms", Font.BOLD, 70)); // Establece la fuente
-        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
+        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la
+                                                                     // pantalla
     }
 }
