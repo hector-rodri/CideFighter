@@ -188,8 +188,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     }
 
     private void drawGameOver(Graphics g) {
-        g.setColor(Color.black); // Establece el color negrito
-        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 60)); // Establece la fuente
-        g.drawString(winner, getWidth() / 2 - 180, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
+        g.setColor(new Color(44, 150, 57)); // Establece el color negrito
+        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 70)); // Establece la fuente
+        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
     }
 }
