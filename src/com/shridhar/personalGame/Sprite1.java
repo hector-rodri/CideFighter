@@ -23,13 +23,33 @@ public class Sprite1 implements GameUtils1 {
 		g.drawImage(image, x, y, w, h, null);
 	}
 	
-	public void loadImage() {
-		try {
-			img = ImageIO.read(Sprite1.class.getResource(GAME_IMAGE));
-			System.out.println("Image is loaded....");
+	public void loadImage(Sprite1 personaje) {
+		if(personaje instanceof Ken){
+			try {
+				img = ImageIO.read(Sprite1.class.getResource(KEN_IMAGE));
+				System.out.println("Image is loaded....");
+			}
+			catch(IOException e) {
+				System.out.println("Image is not Available");
+			}
 		}
-		catch(IOException e) {
-			System.out.println("Image is not Available");
+		else if(personaje instanceof Ryu){
+			try {
+				img = ImageIO.read(Sprite1.class.getResource(RYU_IMAGE));
+				System.out.println("Image is loaded....");
+			}
+			catch(IOException e) {
+				System.out.println("Image is not Available");
+			}
+		}
+		else if(personaje instanceof Camera1){
+			try {
+				img = ImageIO.read(Sprite1.class.getResource(BG_IMAGE));
+				System.out.println("Image is loaded....");
+			}
+			catch(IOException e) {
+				System.out.println("Image is not Available");
+			}
 		}
 	}
 	
