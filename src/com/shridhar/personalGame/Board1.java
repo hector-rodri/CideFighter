@@ -157,10 +157,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         winner = ""; // Limpia el ganador
         Ryu.setRyucounter(300); // Restablece la vida de Ryu
         Ken.setKencounter(300); // Restablece la vida de Ken
-        ryu.setX(100); // Restablece la posición de Ryu
-        ryu.setY(400);
-        ken.setX(600); // Restablece la posición de Ken
-        ken.setY(400);
+        ryu = new Ryu(100, 400);
+        ken = new Ken(600, 400);        
         replayButton.setVisible(false); // Oculta el botón de volver a jugar
         repaint(); // Redibuja el componente
     }

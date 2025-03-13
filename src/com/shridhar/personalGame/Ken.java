@@ -107,13 +107,14 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		walkImages[5]= img.getSubimage(353, 25, 63, 88);
 	}
 	
-	BufferedImage punchImages[] = new BufferedImage[4];
+	BufferedImage punchImages[] = new BufferedImage[6];
 	public void loadPunch() {
 		punchImages[0]= img.getSubimage(697, 19, 77, 94);
 		punchImages[1]= img.getSubimage(582, 18, 107, 95);
-		punchImages[2]= img.getSubimage(497, 19, 77, 94);
-		punchImages[3]= img.getSubimage(423, 19, 66, 94);
-		
+		punchImages[2]= img.getSubimage(582, 18, 107, 95);
+		punchImages[3]= img.getSubimage(497, 19, 77, 94);
+		punchImages[4]= img.getSubimage(423, 19, 66, 94);
+		punchImages[5]= img.getSubimage(423, 19, 66, 94);
 	}
 	
 	BufferedImage fallImages[] = new BufferedImage[4];
@@ -124,12 +125,15 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		fallImages[3]= img.getSubimage(7, 130, 64, 86);
 	}
 
-	BufferedImage jumpImages[] = new BufferedImage[4];
+	BufferedImage jumpImages[] = new BufferedImage[7];
 	public void loadJump(){
 		jumpImages[0]= img.getSubimage(7, 130, 64, 86);
 		jumpImages[1]= img.getSubimage(78, 151, 62, 65);
-		jumpImages[2]= img.getSubimage(148, 146, 61, 70);
-		jumpImages[3]= img.getSubimage(217, 128, 64, 88);
+		jumpImages[2]= img.getSubimage(78, 151, 62, 65);
+		jumpImages[3]= img.getSubimage(148, 146, 61, 70);
+		jumpImages[4]= img.getSubimage(148, 146, 61, 70);
+		jumpImages[5]= img.getSubimage(217, 128, 64, 88);
+		jumpImages[6]= img.getSubimage(217, 128, 64, 88);
 	}
 	
 	BufferedImage defenceImages[] = new BufferedImage[3];
@@ -183,13 +187,20 @@ public class Ken extends Sprite1 implements IPlayer1 {
 	}
 
 	private int kickIndex = 0;
-	private void drawKick(Graphics g){
+	private void drawKick(Graphics g) {
 		g.drawImage(kickImages[kickIndex], x, y, w, h, null);
 		kickIndex++;
-		if(kickIndex==kickImages.length) {
+		if (kickIndex == kickImages.length) {
 			kickIndex = 0;
 			mode = WALK;
 		}
+		try {
+			Thread.sleep(50); // Añade un pequeño retraso
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		// Redibuja el componente para asegurar que el siguiente frame se muestre
+		
 	}
 	
 	private int fallIndex = 0;
