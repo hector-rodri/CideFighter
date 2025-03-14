@@ -193,14 +193,14 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     }
 
     private void drawHUD(Graphics g) {
-        g.setColor(Color.RED); // Establece el color rojo
+        g.setColor(new Color(44, 150, 57)); // Establece el color rojo
         g.fillRect(40, 40, Ryu.getRyucounter(), 40); // Dibuja la barra de vida de Ryu
-        g.setColor(Color.YELLOW); // Establece el color amarillo
-        g.fillRect(400, 40, Ken.getKencounter(), 40); // Dibuja la barra de vida de Ken
-        g.setColor(Color.black); // Establece el color negro
+        g.setColor(new Color(44, 150, 57)); // Establece el color amarillo
+        g.fillRect(450, 40, Ken.getKencounter(), 40); // Dibuja la barra de vida de Ken
+        g.setColor(Color.white); // Establece el color negro
         g.setFont(new Font("Arial", Font.BOLD, 32)); // Establece la fuente
-        g.drawString(player1Name, 40, 40); // Dibuja el texto "RYU"
-        g.drawString(player2Name, 400, 40); // Dibuja el texto "KEN"
+        g.drawString(player1Name, 40, 72); // Dibuja el texto "RYU"
+        g.drawString(player2Name, 450, 72); // Dibuja el texto "KEN"
     }
 
     private void drawGameOver(Graphics g) {
