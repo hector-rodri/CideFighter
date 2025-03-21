@@ -23,6 +23,8 @@ public class GameScreen1 extends JFrame { //Define la clase que hereda de JFrame
                 timer.stop(); //Detiene el temporizador
                 GameFrame1 game = new GameFrame1(); //Crea la ventana del juego
                 game.setVisible(true); //Muestra la ventana del juego
+                game.setLocationRelativeTo(null); //Centra la ventana
+
             }
         });
         timer.start(); //Inicia la animación
@@ -70,6 +72,7 @@ public class GameScreen1 extends JFrame { //Define la clase que hereda de JFrame
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5)); //Borde vacío
         setContentPane(contentPane);
         contentPane.setLayout(null); //Diseño absoluto
+        setResizable(false); // Evita que la ventana sea redimensionable
 
         //IMAGEN
         ImageIcon icono = new ImageIcon(getClass().getResource("/com/shridhar/personalGame/cide.png")); //Ruta de la imagen

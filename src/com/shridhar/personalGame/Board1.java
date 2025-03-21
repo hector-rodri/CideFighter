@@ -163,6 +163,10 @@ public class Board1 extends JPanel {
         GameScreen1 frame = new GameScreen1(); // Abre la nueva pantalla
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        resetGame();
+
+
     }
     
 
@@ -177,6 +181,7 @@ public class Board1 extends JPanel {
         homeButton.setVisible(false);
         requestFocusInWindow(); // Permite que el panel recupere eventos de teclado
         repaint();
+
     }
 
     private void drawHUD(Graphics g) {

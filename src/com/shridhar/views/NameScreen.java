@@ -13,7 +13,7 @@ public class NameScreen extends JFrame {//Define la clase que hereda de JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Cierra la aplicación al cerrar la ventana
         setBounds(100, 100, 501, 447);//Establece el tamaño y posición 
         setLocationRelativeTo(null);//Centra la ventana 
-        setResizable(false);//Impide cambiar el tamaño
+        setResizable(false); // Evita que la ventana sea redimensionable
 
         //PANEL PRINCIPAL
         JPanel panelPrincipal = new JPanel();//Crea el panel principal de la ventana
