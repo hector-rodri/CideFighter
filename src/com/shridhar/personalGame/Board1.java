@@ -151,12 +151,8 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         replayButton.setBackground(new Color(44, 150, 57));// COLOR FONDO
         replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
         replayButton.setVisible(false); // Inicialmente, el botón no es visible
-        replayButton.addActionListener(new ActionListener() { // Añade un ActionListener al botón
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                resetGame(); // Reinicia el juego cuando se hace clic en el botón
-            }
-        });
+        replayButton.addActionListener(e -> resetGame());
+        add(replayButton);
         this.setLayout(null); // Establece el diseño del panel como nulo
         this.add(replayButton); // Añade el botón al panel
         try { // Fuente22
