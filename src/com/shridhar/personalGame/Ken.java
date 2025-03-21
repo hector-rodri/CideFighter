@@ -194,15 +194,10 @@ public class Ken extends Sprite1 implements IPlayer1 {
 			kickIndex = 0;
 			mode = WALK;
 		}
-		try {
-			Thread.sleep(50); // Añade un pequeño retraso
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		// Redibuja el componente para asegurar que el siguiente frame se muestre
 		
 	}
 	
+	 
 	private int fallIndex = 0;
 	int mydelay = 1;
 	private void drawFall(Graphics g) {
