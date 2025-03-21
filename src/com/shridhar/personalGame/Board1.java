@@ -39,8 +39,6 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                 }
             }
 
-            // ...existing code...
-
             @Override
             public void keyPressed(KeyEvent e) { // Maneja el evento cuando se presiona una tecla
                 if (gameOver)
@@ -58,7 +56,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                     case KeyEvent.VK_G -> ryu.attackWithDelay(() -> {
                         ryu.setMode(IPlayer1.PUNCH);
                         if (isCollide(ryu, ken) && ryu.isCanDealDamage()) {
-                            Ken.setKencounter(Ken.getKencounter() - 20);
+                            Ken.setKencounter(Ken.getKencounter() - 20 + (ken.getMode() == 5 ? 10 : 0));
                             ryu.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500); // Retraso de 500ms entre ataques
@@ -81,7 +79,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                     case KeyEvent.VK_NUMPAD1 -> ken.attackWithDelay(() -> {
                         ken.setMode(IPlayer1.PUNCH);
                         if (isCollide(ken, ryu) && ken.isCanDealDamage()) {
-                            Ryu.setRyucounter(Ryu.getRyucounter() - 20);
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 20 + (ryu.getMode() == 5 ? 10 : 0));
                             ken.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500); // Retraso de 500ms entre ataques
@@ -93,13 +91,10 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
                         }
                     }, 500); // Retraso de 500ms entre ataques
 
-                    // case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.POWER); // Ken usa un ataque
-                    // especial
+                    case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.DEFENCE); // Ken usa un ataque
                 }
                 checkWinner(); // Verificar si hay un ganador después de cada acción
             }
-
-            // ...existing code...
         });
     }
 
@@ -170,9 +165,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(font);
             Font buttonFont = font.deriveFont(Font.BOLD, 22f);
-
             replayButton.setFont(buttonFont);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -205,7 +198,6 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
     private void drawGameOver(Graphics g) {
         g.setColor(new Color(44, 150, 57)); // Establece el color negrito
         g.setFont(new Font("Trebuchet Ms", Font.BOLD, 70)); // Establece la fuente
-        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la
-                                                                     // pantalla
+        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
     }
 }
