@@ -9,4 +9,5 @@ public interface IPlayer1 {
 	int POWER = 6;
 	int JUMP = 7;
 
+	boolean isCanDealDamage();
 }

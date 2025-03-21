@@ -3,11 +3,14 @@ package com.shridhar.personalGame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import javax.swing.Timer;
 
 public class Ryu extends Sprite1 implements IPlayer1 {
 	private int mode;
 	public boolean ryudamage;
 	public static int ryucounter = 300;
+	private boolean canAttack = true; // Controla los ataques
+	private boolean canDealDamage = true; // Controla el daño inflingido
 	Ken ken;
 
 	public boolean isRyudamage() {
@@ -33,7 +36,32 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
+
+	// Getter para canDealDamage
+	public boolean isCanDealDamage() {
+		return canDealDamage;
+	}
 	
+	 // Método para atacar con delay
+    public void attackWithDelay(Runnable attackAction, int delayMs) {
+    if (canAttack) {
+        attackAction.run(); // Ejecuta el ataque
+        canAttack = false;  // Bloquea nuevos ataques
+        Timer timer = new Timer(delayMs, (e) -> canAttack = true); // Permite el siguiente ataque después del retraso
+        timer.setRepeats(false); // No queremos repeticiones continuas
+        timer.start(); // Inicia el Timer
+    }
+}
+
+    // Enfriamiento para el daño
+    public void resetDamageCooldown(int cooldownMs) {
+        canDealDamage = false;
+        Timer timer = new Timer(cooldownMs, (e) -> canDealDamage = true);
+		timer.setRepeats(false);
+		timer.start();
+    }
+
+
 	public void move() {
 		int newX = getX() + speed; // Calcula la nueva posición en X
 		int screenWidth = 800;  // Ancho de la pantalla
@@ -98,7 +126,9 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		
 	}
 	
+
 	BufferedImage walkImages [] = new BufferedImage[6];
+
 	public void loadWalk() {
 		walkImages[0] = img.getSubimage(5, 641, 63, 89);
 		walkImages[1]= img.getSubimage(70, 636, 69, 93);
@@ -132,20 +162,15 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		// fallImages[7]= img.getSubimage(539, 1849, 74, 27);
 	}
 
-	BufferedImage jumpImages[] = new BufferedImage[12];
+	BufferedImage jumpImages[] = new BufferedImage[6];
 	public void loadJump() {
-		jumpImages[0]= img.getSubimage(721, 818, 63, 108);
-		jumpImages[1]= img.getSubimage(791, 775, 64, 88);
-		jumpImages[2]= img.getSubimage(791, 775, 64, 88);
-		jumpImages[3]= img.getSubimage(861, 748, 61, 70);
-		jumpImages[4]= img.getSubimage(861, 748, 61, 70);
-		jumpImages[5]= img.getSubimage(925, 739, 62, 65);
-		jumpImages[6]= img.getSubimage(925, 739, 62, 65);
-		jumpImages[7]= img.getSubimage(1000, 750, 64, 86);
-		jumpImages[8]= img.getSubimage(1000, 750, 64, 86);
-		jumpImages[9]= img.getSubimage(1070, 765, 63, 116);
-		jumpImages[10]= img.getSubimage(1070, 765, 63, 116);
-		jumpImages[11]= img.getSubimage(721, 818, 63, 108);
+		jumpImages[0]= img.getSubimage(792, 1194, 63, 108);
+		jumpImages[1]= img.getSubimage(861, 1151, 65, 88);
+		jumpImages[2]= img.getSubimage(932, 1124, 61, 70);
+		jumpImages[3]= img.getSubimage(932, 1124, 61, 70);
+		jumpImages[4]= img.getSubimage(861, 1151, 65, 88);
+		jumpImages[5]= img.getSubimage(792, 1194, 63, 108);
+		
 	}
 	
 	BufferedImage kickImages[] = new BufferedImage[7];
