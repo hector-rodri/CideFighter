@@ -55,8 +55,7 @@ public class NameScreen extends JFrame {// Define la clase que hereda de JFrame
         botonSalir.setBackground(new Color(44, 150, 57));// Color de fondo
         botonSalir.setForeground(new Color(235, 235, 235));// Color del texto
         botonSalir.setBounds(80, 240, 150, 50);// Posición y tamaño
-        botonSalir.addActionListener(new ActionListener() {// Cuando se hace clic en el botón, se ejecuta el método
-                                                           // salir
+        botonSalir.addActionListener(new ActionListener() {// Cuando se hace clic en el botón, se ejecuta el método salir
             @Override
             public void actionPerformed(ActionEvent event) {
                 salir();
@@ -81,33 +80,34 @@ public class NameScreen extends JFrame {// Define la clase que hereda de JFrame
         });
         panelPrincipal.add(botonGuardar);
 
-        try { // Fuente22
-            Font font = Font.createFont(Font.TRUETYPE_FONT,
-                    getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, //Creamos una fuente personalizada modo Cide
+                    getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf")); //Carga el archivo de fuente "junegull.ttf"
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment(); 
             ge.registerFont(font);
             Font buttonFont = font.deriveFont(Font.BOLD, 22f);
-
-            botonGuardar.setFont(buttonFont);
-            botonSalir.setFont(buttonFont);
-            jugador2.setFont(buttonFont);
-            jugador1.setFont(buttonFont);
-            titulo.setFont(buttonFont);
-
-        } catch (Exception e) {
+        
+            botonGuardar.setFont(buttonFont);//Aplicamos nuestra fuente personalizada a varios elementos de la ventana
+            botonSalir.setFont(buttonFont); 
+            jugador2.setFont(buttonFont); 
+            jugador1.setFont(buttonFont); 
+            titulo.setFont(buttonFont); 
+        
+        } catch (Exception e) {//Coge cualquier excepción que pueda ocurrir durante la carga de la fuente
             e.printStackTrace();
         }
-        try { // Fuente32
-            Font font = Font.createFont(Font.TRUETYPE_FONT,
+        
+        try {//Aplicamos nuestra fuente al título de la ventana
+            Font font = Font.createFont(Font.TRUETYPE_FONT, 
                     getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(font);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment(); 
+            ge.registerFont(font); 
             Font buttonFont = font.deriveFont(Font.BOLD, 32f);
-
+        
             titulo.setFont(buttonFont);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        
+        } catch (Exception e) { 
+            e.printStackTrace(); 
         }
     }
 
@@ -116,14 +116,12 @@ public class NameScreen extends JFrame {// Define la clase que hereda de JFrame
         String jugadorNombre2 = nombreJugador2.getText().trim();
 
         if (jugadorNombre1.isEmpty() || jugadorNombre2.isEmpty()) {// Comprueba si ningún campo de texto está vacío
-            JOptionPane.showMessageDialog(this, "Si us plau, introdueix els noms de tots els jugadors!", "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Si us plau, introdueix els noms de tots els jugadors!", "Error",JOptionPane.ERROR_MESSAGE);
             return;// Muestra un mensaje de error
         }
 
         Board1 board1 = new Board1();// Crea una ventana de juego
-        board1.setPlayerNames(jugadorNombre1.toUpperCase(), jugadorNombre2.toUpperCase());// Establece los nombres
-                                                                                          // introducidos
+        board1.setPlayerNames(jugadorNombre1.toUpperCase(), jugadorNombre2.toUpperCase());// Establece los nombres introducidos
         JFrame game = new JFrame();
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.setSize(800, 600);
