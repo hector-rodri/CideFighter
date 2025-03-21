@@ -136,11 +136,14 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		jumpImages[6]= img.getSubimage(217, 128, 64, 88);
 	}
 	
-	BufferedImage defenceImages[] = new BufferedImage[3];
+	BufferedImage defenceImages[] = new BufferedImage[6];
 	public void loadDefence() {
-		defenceImages[0]= img.getSubimage(274, 2152, 25, 69);
-		defenceImages[1]= img.getSubimage(104, 2152, 26, 69);
-		
+		defenceImages[0]= img.getSubimage(818, 253, 65, 92);
+		defenceImages[1]= img.getSubimage(818, 253, 65, 92);
+		defenceImages[2]= img.getSubimage(818, 253, 65, 92);
+		defenceImages[3]= img.getSubimage(741, 254, 69, 91);
+		defenceImages[4]= img.getSubimage(741, 254, 69, 91);
+		defenceImages[5]= img.getSubimage(741, 254, 69, 91);		
 	}
 
 	BufferedImage kickImages[] = new BufferedImage[7];
