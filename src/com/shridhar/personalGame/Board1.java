@@ -3,18 +3,18 @@ package com.shridhar.personalGame;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
 import com.shridhar.views.GameScreen1;
 
-public class Board1 extends JPanel {
-    Camera1 camera1 = new Camera1();
-    Ryu ryu;
-    Ken ken;
-    Timer timer;
-    private boolean gameOver = false;
-    private String winner = "";
-    private JButton replayButton;
+public class Board1 extends JPanel { // Define la clase Board1 que extiende JPanel
+    Camera1 camera1 = new Camera1(); // Objeto para manejar el fondo
+    Ryu ryu; // Instancia del personaje Ryu
+    Ken ken; // Instancia del personaje Ken
+    Timer timer; // Temporizador para actualizar el juego
+    private boolean gameOver = false; // Bandera para indicar si el juego ha terminado
+    private String winner = ""; // Almacena el ganador
+    private JButton replayButton; // Botón para volver a jugar
     private JButton homeButton;
+
     private String player1Name = "RYU";
     private String player2Name = "KEN";
 
@@ -50,17 +50,20 @@ public class Board1 extends JPanel {
                     case KeyEvent.VK_G -> ryu.attackWithDelay(() -> {
                         ryu.setMode(IPlayer1.PUNCH);
                         if (isCollide(ryu, ken) && ryu.isCanDealDamage()) {
-                            Ken.setKencounter(Ken.getKencounter() - 20);
-                            ryu.resetDamageCooldown(500);
+                            Ken.setKencounter(Ken.getKencounter() - 20 + (ken.getMode() == 5 ? 10 : 0));
+                            ryu.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500);
                     case KeyEvent.VK_H -> ryu.attackWithDelay(() -> {
                         ryu.setMode(IPlayer1.KICK);
                         if (isCollide(ryu, ken)) {
-                            Ken.setKencounter(Ken.getKencounter() - 30);
+                            Ken.setKencounter(Ken.getKencounter() - 30 + (ken.getMode() == 5 ? 15 : 0)); // Reduce la vida de Ken si hay colisión
                         }
-                    }, 500);
-                    case KeyEvent.VK_J -> ryu.setMode(IPlayer1.POWER);
+                    }, 500); // Retraso de 500ms entre ataques
+
+                    case KeyEvent.VK_E -> ryu.setMode(IPlayer1.DEFENCE); // Ryu usa un ataque especial
+
+                    // Controles Ken (Jugador 2)
 
                     case KeyEvent.VK_LEFT -> ken.setSpeed(-10);
                     case KeyEvent.VK_RIGHT -> ken.setSpeed(10);
@@ -68,16 +71,18 @@ public class Board1 extends JPanel {
                     case KeyEvent.VK_NUMPAD1 -> ken.attackWithDelay(() -> {
                         ken.setMode(IPlayer1.PUNCH);
                         if (isCollide(ken, ryu) && ken.isCanDealDamage()) {
-                            Ryu.setRyucounter(Ryu.getRyucounter() - 20);
-                            ken.resetDamageCooldown(500);
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 20 + (ryu.getMode() == 5 ? 10 : 0));
+                            ken.resetDamageCooldown(500); // Enfriamiento de 500ms entre daños
                         }
                     }, 500);
                     case KeyEvent.VK_NUMPAD2 -> ken.attackWithDelay(() -> {
                         ken.setMode(IPlayer1.KICK);
                         if (isCollide(ken, ryu)) {
-                            Ryu.setRyucounter(Ryu.getRyucounter() - 30);
+                            Ryu.setRyucounter(Ryu.getRyucounter() - 30 + (ryu.getMode() == 5 ? 15 : 0)); // Reduce la vida de Ryu si hay colisión
                         }
-                    }, 500);
+                    }, 500); // Retraso de 500ms entre ataques
+
+                    case KeyEvent.VK_NUMPAD3 -> ken.setMode(IPlayer1.DEFENCE); // Ken bloquea
                 }
                 checkWinner();
             }
@@ -137,9 +142,21 @@ public class Board1 extends JPanel {
         replayButton.setForeground(Color.WHITE);
         replayButton.setBackground(new Color(44, 150, 57));
         replayButton.setFont(new Font("Verdana", Font.BOLD, 20));
-        replayButton.setVisible(false);
+        replayButton.setVisible(false); // Inicialmente, el botón no es visible
         replayButton.addActionListener(e -> resetGame());
         add(replayButton);
+        this.setLayout(null); // Establece el diseño del panel como nulo
+        this.add(replayButton); // Añade el botón al panel
+        try { // Fuente22
+            Font font = Font.createFont(Font.TRUETYPE_FONT,
+                    getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(font);
+            Font buttonFont = font.deriveFont(Font.BOLD, 22f);
+            replayButton.setFont(buttonFont);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initHomeButton() {
@@ -153,7 +170,7 @@ public class Board1 extends JPanel {
         
         add(homeButton);
     }
-
+    
     public void goToHomeScreen() {
         JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this); // Obtiene el JFrame padre
         if (topFrame != null) {
@@ -164,7 +181,6 @@ public class Board1 extends JPanel {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
-    
 
     private void resetGame() {
         gameOver = false;
@@ -191,8 +207,8 @@ public class Board1 extends JPanel {
     }
 
     private void drawGameOver(Graphics g) {
-        g.setColor(new Color(44, 150, 57));
-        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 70));
-        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2);
+        g.setColor(new Color(44, 150, 57)); // Establece el color negrito
+        g.setFont(new Font("Trebuchet Ms", Font.BOLD, 70)); // Establece la fuente
+        g.drawString(winner, getWidth() / 2 - 220, getHeight() / 2); // Dibuja el texto del ganador en el centro de la pantalla
     }
 }
