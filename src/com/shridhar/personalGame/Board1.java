@@ -159,6 +159,29 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         }
     }
 
+    private void initHomeButton() {
+        homeButton = new JButton("Inici");
+        homeButton.setBounds(170, 350, 200, 60);
+        homeButton.setForeground(Color.WHITE);
+        homeButton.setBackground(new Color(44, 150, 57));
+        homeButton.setFont(new Font("Verdana", Font.BOLD, 20));
+        homeButton.setVisible(false);
+        homeButton.addActionListener(e -> goToHomeScreen());
+        
+        add(homeButton);
+    }
+    
+    public void goToHomeScreen() {
+        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this); // Obtiene el JFrame padre
+        if (topFrame != null) {
+            topFrame.dispose(); // Cierra la ventana actual
+        }
+        
+        GameScreen1 frame = new GameScreen1(); // Abre la nueva pantalla
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+    }
+
     private void resetGame() {
         gameOver = false;
         winner = "";
