@@ -180,6 +180,10 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         GameScreen1 frame = new GameScreen1(); // Abre la nueva pantalla
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        resetGame();
+
+
     }
 
     private void resetGame() {
@@ -193,6 +197,7 @@ public class Board1 extends JPanel { // Define la clase Board1 que extiende JPan
         homeButton.setVisible(false);
         requestFocusInWindow(); // Permite que el panel recupere eventos de teclado
         repaint();
+
     }
 
     private void drawHUD(Graphics g) {

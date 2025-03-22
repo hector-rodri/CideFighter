@@ -14,6 +14,7 @@ public class GameFrame1 extends JFrame implements GameUtils1 {
 		Board1 board1 = new Board1();
 		this.add(board1);
 		setVisible(true);
+
 	}
 	
 
