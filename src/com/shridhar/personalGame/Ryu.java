@@ -116,9 +116,9 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		loadWalk();
 		loadPunch();
 		loadJump();
-		loadFall();
 		loadKick();
 		loadPower();
+		loadDefence();
 		mode = WALK;
 		this.x = x;
 		this.w = this.h = 150;
@@ -126,9 +126,7 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		
 	}
 	
-
 	BufferedImage walkImages [] = new BufferedImage[6];
-
 	public void loadWalk() {
 		walkImages[0] = img.getSubimage(5, 641, 63, 89);
 		walkImages[1]= img.getSubimage(70, 636, 69, 93);
@@ -150,18 +148,6 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		
 	}
 	
-	BufferedImage fallImages[] = new BufferedImage[8];
-	public void loadFall() {
-		// fallImages[0]= img.getSubimage(951, 1127, 43, 74);
-		// fallImages[1]= img.getSubimage(372, 1825, 45, 59);
-		// fallImages[2]= img.getSubimage(861, 1151, 72, 39);
-		// fallImages[3]= img.getSubimage(442, 1830, 72, 42);
-		// fallImages[4]= img.getSubimage(539, 1849, 74, 27);
-		// fallImages[5]= img.getSubimage(539, 1849, 74, 27);
-		// fallImages[6]= img.getSubimage(539, 1849, 74, 27);
-		// fallImages[7]= img.getSubimage(539, 1849, 74, 27);
-	}
-
 	BufferedImage jumpImages[] = new BufferedImage[6];
 	public void loadJump() {
 		jumpImages[0]= img.getSubimage(792, 1194, 63, 108);
@@ -183,13 +169,23 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		kickImages[5]= img.getSubimage(566, 2559, 65, 94);
 		kickImages[6]= img.getSubimage(497, 2559, 67, 94);
 		
-		
 	}
 	
 	BufferedImage powerImages[] = new BufferedImage[1];
 	public void loadPower() {
 		powerImages[0]= img.getSubimage(925, 5105, 133, 129);
 
+	}
+
+
+	BufferedImage defenceImages[] = new BufferedImage[6];
+	public void loadDefence() {
+		defenceImages[0]= img.getSubimage(3, 4658, 65, 92);
+		defenceImages[1]= img.getSubimage(3, 4658, 65, 92);
+		defenceImages[2]= img.getSubimage(3, 4658, 65, 92);
+		defenceImages[3]= img.getSubimage(70, 4659, 68, 91);
+		defenceImages[4]= img.getSubimage(70, 4659, 68, 91);
+		defenceImages[5]= img.getSubimage(70, 4659, 68, 91);		
 	}
 	
 	private int punchIndex = 0;
@@ -209,21 +205,6 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 		if(walkIndex==walkImages.length) {
 			walkIndex = 0;
 		}
-	}
-	
-	private int fallIndex = 0;
-	int mydelay1 = 1;
-	private void drawFall(Graphics g) {
-		if(mydelay1==2) {
-		g.drawImage(fallImages[fallIndex], x, y, w, h, null);
-		fallIndex++;
-		if(fallIndex==fallImages.length) {
-			fallIndex = 0;
-			mode = WALK;
-		}
-		mydelay1 = 1;
-		}
-		mydelay1++;
 	}
 	
 	private int jumpIndex = 0;
@@ -256,6 +237,16 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 			mode = WALK;
 		}
 	}
+
+	private int defenceIndex = 0;	
+	private void drawDefence(Graphics g) {
+		g.drawImage(defenceImages[defenceIndex], x, y, w, h, null);
+		defenceIndex++;
+		if(defenceIndex==defenceImages.length) {
+			defenceIndex = 0;
+			mode = WALK;
+		}
+	}
 	
 	@Override
 	public void draw(Graphics g) {
@@ -266,9 +257,6 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 			case (PUNCH):
 				drawPunch(g);
 				break;
-			case (FALL):
-				drawFall(g);
-				break;
 			case (KICK):
 				drawKick(g);
 				break;
@@ -277,6 +265,9 @@ public class Ryu extends Sprite1 implements IPlayer1 {
 				break;
 			case (JUMP):
 				drawJump(g);
+				break;
+			case (DEFENCE):
+				drawDefence(g);
 				break;
 		}
 }
