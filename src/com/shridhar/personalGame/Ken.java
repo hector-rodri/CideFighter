@@ -5,39 +5,39 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
-public class Ken extends Sprite1 implements IPlayer1 {
-	private int mode;
-	public boolean kendamage;
-	public static int kencounter = 300;
-	private boolean canAttack = true;
-	private boolean canDealDamage = true;
+public class Ken extends Sprite1 implements IPlayer1 { //Clase ken que extiende de Sprite1 e implementa IPlayer1
+	private int mode;// Estado del personaje
+	public boolean kendamage; //Booleano que indica si el personaje ha sido dañado, en este caso no es utilizado
+	public static int kencounter = 300; //Contador de vida
+	private boolean canAttack = true; // Booleano que decide si puede realizar la animación atacar o no
+	private boolean canDealDamage = true;  // Booleano que decide si puede realizar daño o no
 
 	
-	public boolean isKendamage() {
+	public boolean isKendamage() { //Getter para kendamage
 		return kendamage;
 	}
 
-	public void setKendamage(boolean kendamage) {
+	public void setKendamage(boolean kendamage) { //Setter para kendamage
 		this.kendamage = kendamage;
 	}
 
-	public static int getKencounter() {
+	public static int getKencounter() { //Getter para kencounter
 		return kencounter;
 	}
 
-	public static void setKencounter(int kencounter) {
+	public static void setKencounter(int kencounter) { //Setter para kencounter
 		Ken.kencounter = kencounter;
 	}
 
-	public int getMode() {
+	public int getMode() { //Getter para mode
 		return mode;
 	}
 
-	public void setMode(int mode) {
+	public void setMode(int mode) { //Setter para mode
 		this.mode = mode;
 	}
-	 // Método para atacar con delay
-    public void attackWithDelay(Runnable attackAction, int delayMs) {
+	 
+    public void attackWithDelay(Runnable attackAction, int delayMs) {// Método para atacar con delay
     if (canAttack) {
         attackAction.run(); // Ejecuta el ataque
         canAttack = false;  // Bloquea nuevos ataques
@@ -48,7 +48,7 @@ public class Ken extends Sprite1 implements IPlayer1 {
 }
 
     // Enfriamiento para el daño
-    public void resetDamageCooldown(int cooldownMs) {
+    public void resetDamageCooldown(int cooldownMs) { 
         canDealDamage = false;
         Timer timer = new Timer(cooldownMs, (e) -> canDealDamage = true);
 		timer.setRepeats(false);
@@ -60,17 +60,13 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		int newX = getX() + speed; // Calcula la nueva posición en X
 		int screenWidth = 800;  // Ancho de la pantalla
 		int characterWidth = getW(); // Ancho del personaje
-	
-		// Limitar el movimiento dentro de la pantalla
+		// Limita el movimiento dentro de la pantalla
 		if (newX < 0) {
 			newX = 0; // Evita que salga por la izquierda
 		} else if (newX + characterWidth > screenWidth) {
 			newX = screenWidth - characterWidth; // Evita que salga por la derecha
 		}
-	
 		setX(newX); // Aplicar nueva posición
-	
-		// Si agregas movimiento en Y, haz lo mismo con los límites verticales
 	}
 	
 	public void jump(){ // Método para hacer saltar al personaje
@@ -105,18 +101,18 @@ public class Ken extends Sprite1 implements IPlayer1 {
 			}
 		}
 
-	Ken(int x, int y){
-		loadImage(Ken.this);
-		loadWalk();
-		loadPunch();
-		loadJump();
-		loadKick();
-		loadFall();
-		loadDefence();
-		mode = WALK;
-		this.x = x;
-		this.w = this.h = 150;
-		this.y = FLOOR-this.h;
+	Ken(int x, int y){ //Constructor de la clase Ken
+		loadImage(Ken.this); //Carga la imagen del personaje
+		loadWalk(); //Carga las imágenes de caminar
+		loadPunch(); //Carga las imágenes de atacar
+		loadJump(); //Carga las imágenes de saltar
+		loadKick(); //Carga las imágenes de patear
+		loadFall(); //Carga las imágenes de caer
+		loadDefence(); //Carga las imágenes de defender
+		mode = WALK; //Inicializa el modo en caminar
+		this.x = x; //Posición en X
+		this.w = this.h = 150; //Ancho y alto del personaje
+		this.y = FLOOR-this.h; //Posición en Y
 		
 	}
 	
@@ -125,8 +121,8 @@ public class Ken extends Sprite1 implements IPlayer1 {
         return canDealDamage;
     }
 	
-	BufferedImage walkImages [] = new BufferedImage[6];
-	public void loadWalk() {
+	BufferedImage walkImages [] = new BufferedImage[6]; //Array de imágenes para caminar
+	public void loadWalk() { //Método para cargar las imágenes de caminar
 		walkImages[0] = img.getSubimage(6, 20, 56, 93);
 		walkImages[1]= img.getSubimage(70, 19, 54, 94);
 		walkImages[2]= img.getSubimage(135, 18, 59, 95);
@@ -135,8 +131,8 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		walkImages[5]= img.getSubimage(353, 25, 63, 88);
 	}
 	
-	BufferedImage punchImages[] = new BufferedImage[6];
-	public void loadPunch() {
+	BufferedImage punchImages[] = new BufferedImage[6]; //Array de imágenes para puñetazo
+	public void loadPunch() { //Método para cargar las imágenes de puñetazo
 		punchImages[0]= img.getSubimage(697, 19, 77, 94);
 		punchImages[1]= img.getSubimage(582, 18, 107, 95);
 		punchImages[2]= img.getSubimage(582, 18, 107, 95);
@@ -145,16 +141,16 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		punchImages[5]= img.getSubimage(423, 19, 66, 94);
 	}
 	
-	BufferedImage fallImages[] = new BufferedImage[4];
-	public void loadFall() {
+	BufferedImage fallImages[] = new BufferedImage[4]; //Array de caída, en este caso no utilizado
+	public void loadFall() { //Método para cargar las imágenes de caída
 		fallImages[0]= img.getSubimage(217, 128, 64, 88);
 		fallImages[1]= img.getSubimage(148, 146, 61, 70);
 		fallImages[2]= img.getSubimage(78, 151, 62, 65);
 		fallImages[3]= img.getSubimage(7, 130, 64, 86);
 	}
 
-	BufferedImage jumpImages[] = new BufferedImage[7];
-	public void loadJump(){
+	BufferedImage jumpImages[] = new BufferedImage[7]; //Array de imágenes para saltar
+	public void loadJump(){ //Método para cargar las imágenes de saltar
 		jumpImages[0]= img.getSubimage(7, 130, 64, 86);
 		jumpImages[1]= img.getSubimage(78, 151, 62, 65);
 		jumpImages[2]= img.getSubimage(78, 151, 62, 65);
@@ -164,8 +160,8 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		jumpImages[6]= img.getSubimage(217, 128, 64, 88);
 	}
 	
-	BufferedImage defenceImages[] = new BufferedImage[6];
-	public void loadDefence() {
+	BufferedImage defenceImages[] = new BufferedImage[6]; //Array de imágenes para defender
+	public void loadDefence() { //Método para cargar las imágenes de defender
 		defenceImages[0]= img.getSubimage(818, 253, 65, 92);
 		defenceImages[1]= img.getSubimage(818, 253, 65, 92);
 		defenceImages[2]= img.getSubimage(818, 253, 65, 92);
@@ -174,8 +170,8 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		defenceImages[5]= img.getSubimage(741, 254, 69, 91);		
 	}
 
-	BufferedImage kickImages[] = new BufferedImage[7];
-	public void loadKick(){
+	BufferedImage kickImages[] = new BufferedImage[7]; //Array de imágenes para patear
+	public void loadKick(){ //Método para cargar las imágenes de patear
 		kickImages[0]= img.getSubimage(6, 264, 66, 94);
 		kickImages[1]= img.getSubimage(80, 257, 83, 101);
 		kickImages[2]= img.getSubimage(410, 257, 83, 99);
@@ -188,28 +184,28 @@ public class Ken extends Sprite1 implements IPlayer1 {
 	
 	
 	
-	private int punchIndex = 0;
-	private void drawPunch(Graphics g) {
+	private int punchIndex = 0; //Índice para las imágenes de puñetazo y controlar qué imagenes se cargan en la animación
+	private void drawPunch(Graphics g) { //Método para dibujar la animación de puñetazo
 		g.drawImage(punchImages[punchIndex], x, y, w, h, null);
 		punchIndex++;
 		if(punchIndex==punchImages.length) {
 			punchIndex = 0;
-			mode = WALK;
+			mode = WALK; //Una vez termina la animación, vuelve al modo caminar
 		}
 	}
 	
-	private int jumpIndex = 0;
-	private void drawJump(Graphics g) {
+	private int jumpIndex = 0; //Índice para las imágenes de salto y controlar qué imagenes se cargan en la animación
+	private void drawJump(Graphics g) { //Método para dibujar la animación de salto
 		g.drawImage(jumpImages[jumpIndex], x, y, w, h, null);
 		jumpIndex++;
 		if(jumpIndex==jumpImages.length) {
 			jumpIndex = 0;
-			mode = WALK;
+			mode = WALK; //Una vez termina la animación, vuelve al modo caminar
 		}
 	}
 
-	private int walkIndex = 0;
-	private void drawWalk(Graphics g) {
+	private int walkIndex = 0; //Índice para las imágenes de caminar y controlar qué imagenes se cargan en la animación
+	private void drawWalk(Graphics g) { //Método para dibujar la animación de caminar
 		g.drawImage(walkImages[walkIndex], x, y, w, h, null);
 		walkIndex++;
 		if(walkIndex==walkImages.length) {
@@ -217,47 +213,46 @@ public class Ken extends Sprite1 implements IPlayer1 {
 		}
 	}
 
-	private int kickIndex = 0;
-	private void drawKick(Graphics g) {
+	private int kickIndex = 0; //Índice para las imágenes de patear y controlar qué imagenes se cargan en la animación
+	private void drawKick(Graphics g) {	//Método para dibujar la animación de patear
 		g.drawImage(kickImages[kickIndex], x, y, w, h, null);
 		kickIndex++;
 		if (kickIndex == kickImages.length) {
 			kickIndex = 0;
-			mode = WALK;
+			mode = WALK; //Una vez termina la animación, vuelve al modo caminar
 		}
-		
 	}
 	
 	 
-	private int fallIndex = 0;
-	int mydelay = 1;
-	private void drawFall(Graphics g) {
+	private int fallIndex = 0; //Índice para las imágenes de caída y controlar qué imagenes se cargan en la animación
+	int mydelay = 1; //Delay para la animación de caída
+	private void drawFall(Graphics g) { //Método para dibujar la animación de caída
 		if(mydelay==2) {
 		g.drawImage(fallImages[fallIndex], x, y, w, h, null);
 		fallIndex++;
 		if(fallIndex==fallImages.length) {
 			fallIndex = 0;
-			mode = WALK;
+			mode = WALK; //Una vez termina la animación, vuelve al modo caminar
 		}
 		mydelay = 1;
 		}
 		mydelay++;
 	}
 	
-	private int defenceIndex = 0;
-	private void drawDefence(Graphics g) {
+	private int defenceIndex = 0; //Índice para las imágenes de defender y controlar qué imagenes se cargan en la animación
+	private void drawDefence(Graphics g) { //Método para dibujar la animación de defender
 		g.drawImage(defenceImages[defenceIndex], x, y, w, h, null);
 		defenceIndex++;
 		if(defenceIndex==defenceImages.length) {
 			defenceIndex = 0;
-			mode = WALK;
+			mode = WALK; //Una vez termina la animación, vuelve al modo caminar
 		}
 	}
 	
 	
 	
 	@Override
-	public void draw(Graphics g) {
+	public void draw(Graphics g) { //Método para dibujar el personaje
 		switch(mode){
 		case WALK:
 			drawWalk(g);
@@ -281,11 +276,11 @@ public class Ken extends Sprite1 implements IPlayer1 {
 				
 	}
 	
-	int barwidth = 300;
-	public int drawProgress(Graphics g) {
-		barwidth = barwidth-20;
-		g.setColor(Color.RED);
-		g.fillRect(400, 40, barwidth, 40);
+	int barwidth = 300; //Ancho de la barra de vida
+	public int drawProgress(Graphics g) { //Método para dibujar la barra de vida
+		barwidth = barwidth-20; //Disminuye la barra de vida
+		g.setColor(Color.RED); //Color de la barra de vida cuando es drenada
+		g.fillRect(400, 40, barwidth, 40); //Dibuja la barra de vida que ha sido dañada
 		return barwidth;
 	}
 	

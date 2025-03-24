@@ -19,14 +19,12 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 		setContentPane(contentPane);//Establece el panel como contenido principal
 		contentPane.setLayout(null);//Desactiva el poder de diseño automático
         setResizable(false); // Evita que la ventana sea redimensionable
-
-
-
-		JLabel lblInstructions = new JLabel("INSTRUCCIONS");//Etiqueta para el título
-		lblInstructions.setForeground(Color.black);//Color del texto negro
-		lblInstructions.setFont(new Font("Tahoma", Font.BOLD, 25));//Fuente y tamaño
-		lblInstructions.setBounds(157, 20, 200, 46);//Posición y tamaño de la etiqueta
-		contentPane.add(lblInstructions);
+ 
+		JLabel labelInstructions = new JLabel("INSTRUCCIONS");//Etiqueta para el título
+		labelInstructions.setForeground(Color.black);//Color del texto negro
+		labelInstructions.setFont(new Font("Tahoma", Font.BOLD, 25));//Fuente y tamaño
+		labelInstructions.setBounds(157, 20, 200, 46);//Posición y tamaño de la etiqueta
+		contentPane.add(labelInstructions);
 
 		JLabel jugador1 = new JLabel("RYU JUGADOR 1");//Etiqueta para el jugador 1
 		jugador1.setFont(new Font("Tahoma", Font.BOLD, 19));//Fuente y tamaño
@@ -35,53 +33,53 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 		contentPane.add(jugador1);//Se añade al panel
 
 		//Etiqueta de la tecla (W) para saltar
-		JLabel lblVkupIncrease = new JLabel("Tecla (W) :  Salt");
-		lblVkupIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18)); 
-		lblVkupIncrease.setBounds(20, 100, 304, 29); 
-		lblVkupIncrease.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkupIncrease);
+		JLabel labelVkupIncrease = new JLabel("Tecla (W) :  Salt");
+		labelVkupIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18)); 
+		labelVkupIncrease.setBounds(20, 100, 304, 29); 
+		labelVkupIncrease.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkupIncrease);
 
 		//Etiqueta de la tecla (A) para moverse a la izquierda
-		JLabel lblVkrightIncrease = new JLabel("Tecla (A) :  Esquerra");
-		lblVkrightIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrightIncrease.setBounds(20, 135, 304, 29);
-		lblVkrightIncrease.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkrightIncrease);
+		JLabel labelVkrightIncrease = new JLabel("Tecla (A) :  Esquerra");
+		labelVkrightIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkrightIncrease.setBounds(20, 135, 304, 29);
+		labelVkrightIncrease.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkrightIncrease);
 
 		//Etiqueta de la tecla (S) para agacharse
-		JLabel lblVkdownDecrease = new JLabel("Tecla (S) :  Acotar-se");
-		lblVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkdownDecrease.setBounds(20, 170, 304, 29);
-		lblVkdownDecrease.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkdownDecrease);
+		JLabel labelVkdownDecrease = new JLabel("Tecla (S) :  Acotar-se");
+		labelVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkdownDecrease.setBounds(20, 170, 304, 29);
+		labelVkdownDecrease.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkdownDecrease);
 
 		//Etiqueta de la tecla (D) para moverse a la derecha
-		JLabel lblVkleftDecrease = new JLabel("Tecla (D) :  Dreta");
-		lblVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkleftDecrease.setBounds(20, 205, 304, 29);
-		lblVkleftDecrease.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkleftDecrease);
+		JLabel labelVkleftDecrease = new JLabel("Tecla (D) :  Dreta");
+		labelVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkleftDecrease.setBounds(20, 205, 304, 29);
+		labelVkleftDecrease.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkleftDecrease);
 
 		//Etiqueta de la tecla (G) para golpear
-		JLabel lblVkrIncrease = new JLabel("Tecla (G) :  Cop");
-		lblVkrIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrIncrease.setBounds(20, 240, 304, 29);
-		lblVkrIncrease.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkrIncrease);
+		JLabel labelVkrIncrease = new JLabel("Tecla (G) :  Cop");
+		labelVkrIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkrIncrease.setBounds(20, 240, 304, 29);
+		labelVkrIncrease.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkrIncrease);
 
 		//Etiqueta de la tecla (H) para dar una patada
-		JLabel lblVklDecrease = new JLabel("Tecla (H) :  Potada");
-		lblVklDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVklDecrease.setBounds(20, 275, 304, 29);
-		lblVklDecrease.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVklDecrease);
+		JLabel labelVklDecrease = new JLabel("Tecla (H) :  Potada");
+		labelVklDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVklDecrease.setBounds(20, 275, 304, 29);
+		labelVklDecrease.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVklDecrease);
 
 		//Etiqueta de la tecla (J) para usar poder especial
-		JLabel ldlVklPoderespecial = new JLabel("Tecla (J) :  Poder");
-		ldlVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		ldlVklPoderespecial.setBounds(20, 310, 304, 29);
-		ldlVklPoderespecial.setForeground(new Color(235, 235, 235));
-		contentPane.add(ldlVklPoderespecial);
+		JLabel labelVklPoderespecial = new JLabel("Tecla (J) :  Poder");
+		labelVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVklPoderespecial.setBounds(20, 310, 304, 29);
+		labelVklPoderespecial.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVklPoderespecial);
 
 		//Etiqueta para el jugador 2
 		JLabel jugador2 = new JLabel("KEN JUGADOR 2");
@@ -91,66 +89,66 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 		contentPane.add(jugador2);
 
 		//Etiqueta de la tecla de flecha arriba para saltar
-		JLabel lblVkupIncrease2 = new JLabel("Fletxa :  Salt");
-		lblVkupIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkupIncrease2.setBounds(280, 100, 304, 29);
-		lblVkupIncrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkupIncrease2);
+		JLabel labelVkupIncrease2 = new JLabel("Fletxa :  Salt");
+		labelVkupIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkupIncrease2.setBounds(280, 100, 304, 29);
+		labelVkupIncrease2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkupIncrease2);
 
 		//Etiqueta de la tecla de flecha izquierda para moverse a la izquierda
-		JLabel lblVkrightIncrease2 = new JLabel("Fletxa :  Esquerra");
-		lblVkrightIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrightIncrease2.setBounds(280, 135, 304, 29);
-		lblVkrightIncrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkrightIncrease2);
+		JLabel labelVkrightIncrease2 = new JLabel("Fletxa :  Esquerra");
+		labelVkrightIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkrightIncrease2.setBounds(280, 135, 304, 29);
+		labelVkrightIncrease2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkrightIncrease2);
 
 		//Etiqueta de la tecla de flecha abajo para agacharse
-		JLabel lblVkdownDecrease2 = new JLabel("Fletxa :  Acotar-se");
-		lblVkdownDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkdownDecrease2.setBounds(280, 170, 304, 29);
-		lblVkdownDecrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkdownDecrease2);
+		JLabel labelVkdownDecrease2 = new JLabel("Fletxa :  Acotar-se");
+		labelVkdownDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkdownDecrease2.setBounds(280, 170, 304, 29);
+		labelVkdownDecrease2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkdownDecrease2);
 
 		//Etiqueta de la tecla de flecha derecha para moverse a la derecha
-		JLabel lblVkleftDecrease2 = new JLabel("Fletxa :  Dreta");
-		lblVkleftDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkleftDecrease2.setBounds(280, 205, 304, 29);
-		lblVkleftDecrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkleftDecrease2);
+		JLabel labelVkleftDecrease2 = new JLabel("Fletxa :  Dreta");
+		labelVkleftDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkleftDecrease2.setBounds(280, 205, 304, 29);
+		labelVkleftDecrease2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkleftDecrease2);
 
 		//Etiqueta de la tecla (1) para golpear
-		JLabel lblVkrIncrease2 = new JLabel("NumPad (1) :  Cop");
-		lblVkrIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVkrIncrease2.setBounds(280, 240, 304, 29);
-		lblVkrIncrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVkrIncrease2);
+		JLabel labelVkrIncrease2 = new JLabel("NumPad (1) :  Cop");
+		labelVkrIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVkrIncrease2.setBounds(280, 240, 304, 29);
+		labelVkrIncrease2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVkrIncrease2);
 
 		//Etiqueta de la tecla (2) para dar una patada
-		JLabel lblVklDecrease2 = new JLabel("NumPad (2) :  Potada");
-		lblVklDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblVklDecrease2.setBounds(280, 275, 304, 29);
-		lblVklDecrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(lblVklDecrease2);
+		JLabel labelVklDecrease2 = new JLabel("NumPad (2) :  Potada");
+		labelVklDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVklDecrease2.setBounds(280, 275, 304, 29);
+		labelVklDecrease2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVklDecrease2);
 
 		//Etiqueta de la tecla (3) para usar poder especial
-		JLabel ldlVklPoderespecial2 = new JLabel("NumPad (3) :  Poder");
-		ldlVklPoderespecial2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		ldlVklPoderespecial2.setBounds(280, 310, 304, 29);
-		ldlVklPoderespecial2.setForeground(new Color(235, 235, 235));
-		contentPane.add(ldlVklPoderespecial2);
+		JLabel labelVklPoderespecial2 = new JLabel("NumPad (3) :  Poder");
+		labelVklPoderespecial2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		labelVklPoderespecial2.setBounds(280, 310, 304, 29);
+		labelVklPoderespecial2.setForeground(new Color(235, 235, 235));
+		contentPane.add(labelVklPoderespecial2);
 
 		//Botón para salir de la pantalla de ayuda
-		JButton btnExit = new JButton("SORTIR");
-		btnExit.addActionListener(new ActionListener() {
+		JButton buttonExit = new JButton("SORTIR");
+		buttonExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				exit();
 			}
 		});
-		btnExit.setFont(new Font("Tahoma", Font.BOLD, 28));
-		btnExit.setBackground(new Color(235, 235, 235));//COLOR FONDO BOTÓN
-		btnExit.setForeground(new Color(44, 150, 57));//COLOR LETRA
-		btnExit.setBounds(177, 365, 150, 40);//UBICACIÓN DEL BOTÓN
-		contentPane.add(btnExit);
+		buttonExit.setFont(new Font("Tahoma", Font.BOLD, 28));
+		buttonExit.setBackground(new Color(235, 235, 235));//COLOR FONDO BOTÓN
+		buttonExit.setForeground(new Color(44, 150, 57));//COLOR LETRA
+		buttonExit.setBounds(177, 365, 150, 40);//UBICACIÓN DEL BOTÓN
+		contentPane.add(buttonExit);
 		
 		try { //Fuente Cide tamaño 18
 			Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/com/shridhar/personalGame/junegull.ttf"));
@@ -158,20 +156,20 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 			ge.registerFont(font);
 			Font buttonFont = font.deriveFont(Font.ITALIC, 18f);
 			
-			ldlVklPoderespecial2.setFont(buttonFont);
-			lblVklDecrease2.setFont(buttonFont);
-			lblVkrIncrease2.setFont(buttonFont);
-			lblVkleftDecrease2.setFont(buttonFont);
-			lblVkdownDecrease2.setFont(buttonFont);
-			lblVkrightIncrease2.setFont(buttonFont);
-			lblVkupIncrease2.setFont(buttonFont);
-			ldlVklPoderespecial.setFont(buttonFont);
-			lblVklDecrease.setFont(buttonFont);
-			lblVkrIncrease.setFont(buttonFont);
-			lblVkleftDecrease.setFont(buttonFont);
-			lblVkdownDecrease.setFont(buttonFont);
-			lblVkrightIncrease.setFont(buttonFont);
-			lblVkupIncrease.setFont(buttonFont);
+			labelVklPoderespecial2.setFont(buttonFont);
+			labelVklDecrease2.setFont(buttonFont);
+			labelVkrIncrease2.setFont(buttonFont);
+			labelVkleftDecrease2.setFont(buttonFont);
+			labelVkdownDecrease2.setFont(buttonFont);
+			labelVkrightIncrease2.setFont(buttonFont);
+			labelVkupIncrease2.setFont(buttonFont);
+			labelVklPoderespecial.setFont(buttonFont);
+			labelVklDecrease.setFont(buttonFont);
+			labelVkrIncrease.setFont(buttonFont);
+			labelVkleftDecrease.setFont(buttonFont);
+			labelVkdownDecrease.setFont(buttonFont);
+			labelVkrightIncrease.setFont(buttonFont);
+			labelVkupIncrease.setFont(buttonFont);
 
 
 		} catch (Exception e) {
@@ -184,10 +182,10 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 			ge.registerFont(font);
 			Font buttonFont = font.deriveFont(Font.BOLD, 26f);
 			
-			btnExit.setFont(buttonFont);
+			buttonExit.setFont(buttonFont);
 			jugador2.setFont(buttonFont);
 			jugador1.setFont(buttonFont);
-			lblInstructions.setFont(buttonFont);
+			labelInstructions.setFont(buttonFont);
 			
 
 
