@@ -46,40 +46,33 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 		labelVkrightIncrease.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkrightIncrease);
 
-		//Etiqueta de la tecla (S) para agacharse
-		JLabel labelVkdownDecrease = new JLabel("Tecla (S) :  Acotar-se");
+		//Etiqueta de la tecla (D) para moverse a la derecha
+		JLabel labelVkdownDecrease = new JLabel("Tecla (D) :  Dreta");
 		labelVkdownDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		labelVkdownDecrease.setBounds(20, 170, 304, 29);
 		labelVkdownDecrease.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkdownDecrease);
 
-		//Etiqueta de la tecla (D) para moverse a la derecha
-		JLabel labelVkleftDecrease = new JLabel("Tecla (D) :  Dreta");
+		//Etiqueta de la tecla (G) para golpear
+		JLabel labelVkleftDecrease = new JLabel("Tecla (G) :  Cop");
 		labelVkleftDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		labelVkleftDecrease.setBounds(20, 205, 304, 29);
 		labelVkleftDecrease.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkleftDecrease);
 
-		//Etiqueta de la tecla (G) para golpear
-		JLabel labelVkrIncrease = new JLabel("Tecla (G) :  Cop");
+		//Etiqueta de la tecla (H) para dar una patada
+		JLabel labelVkrIncrease = new JLabel("Tecla (H) :  Potada");
 		labelVkrIncrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		labelVkrIncrease.setBounds(20, 240, 304, 29);
 		labelVkrIncrease.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkrIncrease);
 
-		//Etiqueta de la tecla (H) para dar una patada
-		JLabel labelVklDecrease = new JLabel("Tecla (H) :  Potada");
+		//Etiqueta de la tecla (E) para defenderse
+		JLabel labelVklDecrease = new JLabel("Tecla (E) :  Defensa't");
 		labelVklDecrease.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		labelVklDecrease.setBounds(20, 275, 304, 29);
 		labelVklDecrease.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVklDecrease);
-
-		//Etiqueta de la tecla (J) para usar poder especial
-		JLabel labelVklPoderespecial = new JLabel("Tecla (J) :  Poder");
-		labelVklPoderespecial.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		labelVklPoderespecial.setBounds(20, 310, 304, 29);
-		labelVklPoderespecial.setForeground(new Color(235, 235, 235));
-		contentPane.add(labelVklPoderespecial);
 
 		//Etiqueta para el jugador 2
 		JLabel jugador2 = new JLabel("KEN JUGADOR 2");
@@ -101,42 +94,35 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 		labelVkrightIncrease2.setBounds(280, 135, 304, 29);
 		labelVkrightIncrease2.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkrightIncrease2);
-
-		//Etiqueta de la tecla de flecha abajo para agacharse
-		JLabel labelVkdownDecrease2 = new JLabel("Fletxa :  Acotar-se");
-		labelVkdownDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		labelVkdownDecrease2.setBounds(280, 170, 304, 29);
-		labelVkdownDecrease2.setForeground(new Color(235, 235, 235));
-		contentPane.add(labelVkdownDecrease2);
-
+		
 		//Etiqueta de la tecla de flecha derecha para moverse a la derecha
 		JLabel labelVkleftDecrease2 = new JLabel("Fletxa :  Dreta");
 		labelVkleftDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		labelVkleftDecrease2.setBounds(280, 205, 304, 29);
+		labelVkleftDecrease2.setBounds(280, 170, 304, 29);
 		labelVkleftDecrease2.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkleftDecrease2);
-
+		
 		//Etiqueta de la tecla (1) para golpear
 		JLabel labelVkrIncrease2 = new JLabel("NumPad (1) :  Cop");
 		labelVkrIncrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		labelVkrIncrease2.setBounds(280, 240, 304, 29);
+		labelVkrIncrease2.setBounds(280, 205, 304, 29);
 		labelVkrIncrease2.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVkrIncrease2);
-
+		
 		//Etiqueta de la tecla (2) para dar una patada
 		JLabel labelVklDecrease2 = new JLabel("NumPad (2) :  Potada");
 		labelVklDecrease2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		labelVklDecrease2.setBounds(280, 275, 304, 29);
+		labelVklDecrease2.setBounds(280, 240, 304, 29);
 		labelVklDecrease2.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVklDecrease2);
-
-		//Etiqueta de la tecla (3) para usar poder especial
-		JLabel labelVklPoderespecial2 = new JLabel("NumPad (3) :  Poder");
+		
+		//Etiqueta de la tecla (3) para defenderse
+		JLabel labelVklPoderespecial2 = new JLabel("NumPad (3) :  Defensa't");
 		labelVklPoderespecial2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		labelVklPoderespecial2.setBounds(280, 310, 304, 29);
+		labelVklPoderespecial2.setBounds(280, 275, 304, 29);
 		labelVklPoderespecial2.setForeground(new Color(235, 235, 235));
 		contentPane.add(labelVklPoderespecial2);
-
+		
 		//Botón para salir de la pantalla de ayuda
 		JButton buttonExit = new JButton("SORTIR");
 		buttonExit.addActionListener(new ActionListener() {
@@ -160,10 +146,8 @@ public class HelpScreen extends JFrame {//Clase HelpScreen que extiende JFrame
 			labelVklDecrease2.setFont(buttonFont);
 			labelVkrIncrease2.setFont(buttonFont);
 			labelVkleftDecrease2.setFont(buttonFont);
-			labelVkdownDecrease2.setFont(buttonFont);
 			labelVkrightIncrease2.setFont(buttonFont);
 			labelVkupIncrease2.setFont(buttonFont);
-			labelVklPoderespecial.setFont(buttonFont);
 			labelVklDecrease.setFont(buttonFont);
 			labelVkrIncrease.setFont(buttonFont);
 			labelVkleftDecrease.setFont(buttonFont);
